@@ -34,6 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# worktrees
+.worktrees/
+
 # python (legacy scraper venv)
 venv/
 __pycache__/
