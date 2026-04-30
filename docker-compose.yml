@@ -7,6 +7,15 @@ services:
       - "3006:3006"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
       - NODE_ENV=production
       - PORT=3006
       - HOSTNAME=0.0.0.0
+      - DATABASE_URL=file:/app/data/dev.db
+    volumes:
+      - apartner-data:/app/data
+      - apartner-uploads:/app/uploads
+
+volumes:
+  apartner-data:
+  apartner-uploads:

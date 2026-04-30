@@ -1,0 +1,92 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id                       Int      @id @default(autoincrement())
+  firstName                String
+  lastName                 String
+  birthday                 DateTime
+  nationality              String
+  email                    String
+  phone                    String
+  shortBio                 String
+  cvPath                   String?
+  debtCollectionCertPath   String?
+  proofOfSalaryPath        String?
+  previousLandlords        PreviousLandlord[]
+  preferences              Preferences?
+  applications             Application[]
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+}
+
+model PreviousLandlord {
+  id          Int      @id @default(autoincrement())
+  profileId   Int
+  profile     Profile  @relation(fields: [profileId], references: [id])
+  name        String
+  contact     String
+  periodStart DateTime
+  periodEnd   DateTime
+}
+
+model Preferences {
+  id                    Int      @id @default(autoincrement())
+  profileId             Int      @unique
+  profile               Profile  @relation(fields: [profileId], references: [id])
+  priceMaxChf           Int
+  roomsMin              Float
+  sizeSqmMin            Int
+  neighborhoods         String
+  needsBalcony          Boolean  @default(false)
+  needsParking          Boolean  @default(false)
+  petFriendly           Boolean  @default(false)
+  furnishedPreference   String   @default("any")
+}
+
+model Listing {
+  id                          String   @id
+  heroImage                   String
+  gallery                     String
+  sizeSqm                     Int
+  priceChf                    Int
+  rooms                       Float
+  balcony                     Boolean
+  parking                     Boolean
+  addressLine                 String
+  neighborhood                String
+  lat                         Float
+  lng                         Float
+  floor                       Int
+  availabilityStart           DateTime
+  availabilityDurationMonths  Int?
+  furnished                   Boolean
+  petsAllowed                 Boolean
+  customNotes                 String
+  yearBuilt                   Int
+  distanceFromCenterKm        Float
+  hasDishwasher               Boolean
+  hasLaundry                  Boolean
+  hasElevator                 Boolean
+  applications                Application[]
+}
+
+model Application {
+  id                    Int      @id @default(autoincrement())
+  profileId             Int
+  profile               Profile  @relation(fields: [profileId], references: [id])
+  listingId             String
+  listing               Listing  @relation(fields: [listingId], references: [id])
+  status                String
+  generatedCoverLetter  String?
+  swipedAt              DateTime @default(now())
+  statusUpdatedAt       DateTime @default(now())
+
+  @@unique([profileId, listingId])
+}

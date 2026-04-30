@@ -26,6 +26,11 @@ yarn-error.log*
 .env
 .env*.local
 
+# database / uploads
+*.db
+*.db-journal
+/uploads
+
 # typescript
 *.tsbuildinfo
 

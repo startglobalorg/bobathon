@@ -8,6 +8,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
+RUN npx prisma generate
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
@@ -25,10 +26,23 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# Prisma CLI + engines + schema/migrations so the entrypoint can run `prisma migrate deploy`.
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/prisma ./node_modules/prisma
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
+COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
+
+# Persistent dirs must exist and be owned by nextjs BEFORE the USER switch,
+# otherwise volumes mount as root and the app can't write to them.
+RUN mkdir -p /app/data /app/uploads \
+  && chown -R nextjs:nodejs /app/data /app/uploads
+
+COPY --chown=nextjs:nodejs docker-entrypoint.sh ./
+RUN chmod +x ./docker-entrypoint.sh
+
 USER nextjs
 EXPOSE 3006
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
   CMD wget --quiet --tries=1 --spider http://localhost:3006/ || exit 1
 
-CMD ["node", "server.js"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
