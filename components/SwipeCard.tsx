@@ -39,6 +39,15 @@ export function SwipeCard({
     pointerId: number;
   } | null>(null);
 
+  // Keep a stable ref to onSwipe so timeouts don't capture stale closures
+  // and the programmatic effect doesn't re-run when the parent re-renders.
+  const onSwipeRef = useRef(onSwipe);
+  onSwipeRef.current = onSwipe;
+
+  // Ref-based guard so the programmatic effect doesn't re-trigger when
+  // setExiting() causes a re-render (which would cancel its own setTimeout).
+  const exitingRef = useRef<'left' | 'right' | null>(null);
+
   // Mount-in animation
   useEffect(() => {
     const t = requestAnimationFrame(() => setEntered(true));
@@ -47,17 +56,19 @@ export function SwipeCard({
 
   // Programmatic swipe (button click on top card)
   useEffect(() => {
-    if (!isTop || !programmaticDir || exiting) return;
+    if (!isTop || !programmaticDir || exitingRef.current) return;
+    exitingRef.current = programmaticDir;
     setExiting(programmaticDir);
     setX(programmaticDir === 'right' ? 600 : -600);
-    const t = setTimeout(() => onSwipe(programmaticDir), 360);
+    const t = setTimeout(() => onSwipeRef.current(programmaticDir), 360);
     return () => clearTimeout(t);
-  }, [programmaticDir, isTop, exiting, onSwipe]);
+  }, [programmaticDir, isTop]); // exiting and onSwipe intentionally omitted — handled via refs
 
   const beginExit = (dir: 'left' | 'right') => {
+    exitingRef.current = dir;
     setExiting(dir);
     setX(dir === 'right' ? 600 : -600);
-    setTimeout(() => onSwipe(dir), 360);
+    setTimeout(() => onSwipeRef.current(dir), 360);
   };
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
