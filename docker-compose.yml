@@ -1,0 +1,12 @@
+services:
+  apartner:
+    image: ghcr.io/<your-org>/apartner:latest
+    container_name: apartner
+    restart: unless-stopped
+    ports:
+      - "3006:3006"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - NODE_ENV=production
+      - PORT=3006
+      - HOSTNAME=0.0.0.0

@@ -1,0 +1,14 @@
+node_modules
+.next
+.git
+.env
+.env.local
+npm-debug.log
+README.md
+Dockerfile
+docker-compose.yml
+venv
+__pycache__
+*.pyc
+.pytest_cache
+listings.json

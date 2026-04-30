@@ -1,3 +1,35 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# next.js
+.next/
+out/
+next-env.d.ts.bak
+
+# production
+build/
+dist/
+
+# misc
+.DS_Store
+*.pem
+.vscode/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# python (legacy scraper venv)
 venv/
 __pycache__/
 *.pyc
