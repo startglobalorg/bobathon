@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { MapPin } from 'lucide-react';
+import { Heart, MapPin, X } from 'lucide-react';
 import { Pill } from './Pill';
 import { fmtCHF } from '@/lib/format';
 import { useReducedMotion } from '@/lib/hooks/useReducedMotion';
@@ -39,25 +39,30 @@ export function SwipeCard({
     pointerId: number;
   } | null>(null);
 
-  // Mount-in animation
+  const onSwipeRef = useRef(onSwipe);
+  onSwipeRef.current = onSwipe;
+
+  const exitingRef = useRef<'left' | 'right' | null>(null);
+
   useEffect(() => {
     const t = requestAnimationFrame(() => setEntered(true));
     return () => cancelAnimationFrame(t);
   }, []);
 
-  // Programmatic swipe (button click on top card)
   useEffect(() => {
-    if (!isTop || !programmaticDir || exiting) return;
+    if (!isTop || !programmaticDir || exitingRef.current) return;
+    exitingRef.current = programmaticDir;
     setExiting(programmaticDir);
     setX(programmaticDir === 'right' ? 600 : -600);
-    const t = setTimeout(() => onSwipe(programmaticDir), 360);
+    const t = setTimeout(() => onSwipeRef.current(programmaticDir), 360);
     return () => clearTimeout(t);
-  }, [programmaticDir, isTop, exiting, onSwipe]);
+  }, [programmaticDir, isTop]);
 
   const beginExit = (dir: 'left' | 'right') => {
+    exitingRef.current = dir;
     setExiting(dir);
     setX(dir === 'right' ? 600 : -600);
-    setTimeout(() => onSwipe(dir), 360);
+    setTimeout(() => onSwipeRef.current(dir), 360);
   };
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -95,7 +100,6 @@ export function SwipeCard({
     } else if (offset < -SWIPE_THRESHOLD || v < -VELOCITY_THRESHOLD) {
       beginExit('left');
     } else {
-      // small drag = treat as tap
       if (Math.abs(offset) < 5 && performance.now() - d.startTime < 250) {
         onTap();
       }
@@ -105,28 +109,27 @@ export function SwipeCard({
 
   const reducedMotion = useReducedMotion();
 
-  // Visual transforms
   const rotate = clamp(x / 25, -8, 8);
   const cardOpacity =
     Math.abs(x) > 100 ? Math.max(0.4, 1 - (Math.abs(x) - 100) / 200) : 1;
-  const likeOpacity = clamp((x - 40) / 100, 0, 1);
-  const passOpacity = clamp((-x - 40) / 100, 0, 1);
+  const likeProgress = clamp((x - 30) / 110, 0, 1);
+  const passProgress = clamp((-x - 30) / 110, 0, 1);
 
-  const stackOffsetY = stackIndex * 8;
-  const stackScale = 1 - stackIndex * 0.04;
+  const stackOffsetY = stackIndex * 12;
+  const stackScale = 1 - stackIndex * 0.05;
+  const stackOpacity = isTop ? 1 : Math.max(0, 1 - stackIndex * 0.25);
 
-  // Mount/exit transitions
   const transition = reducedMotion
     ? dragRef.current
       ? 'none'
       : 'opacity 150ms ease-out'
     : exiting
-      ? 'transform 360ms cubic-bezier(0.2,0.8,0.2,1), opacity 360ms ease-out'
+      ? 'transform 360ms cubic-bezier(0.23,1,0.32,1), opacity 360ms ease-out'
       : dragRef.current
         ? 'none'
-        : 'transform 280ms cubic-bezier(0.2,0.8,0.2,1), opacity 220ms ease-out';
+        : 'transform 280ms cubic-bezier(0.23,1,0.32,1), opacity 220ms ease-out';
 
-  const baseOpacity = entered ? (exiting ? 0 : isTop ? cardOpacity : 1) : 0;
+  const baseOpacity = entered ? (exiting ? 0 : isTop ? cardOpacity : stackOpacity) : 0;
 
   const transform = reducedMotion
     ? exiting
@@ -150,7 +153,7 @@ export function SwipeCard({
       onPointerUp={onPointerUp}
       onPointerCancel={onPointerUp}
     >
-      <div className="w-full h-full bg-white rounded-3xl border border-border overflow-hidden flex flex-col">
+      <div className="w-full h-full bg-white rounded-3xl border border-border overflow-hidden flex flex-col shadow-soft">
         <div className="relative flex-1 bg-surface-soft overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -159,34 +162,49 @@ export function SwipeCard({
             draggable={false}
             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           />
-          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+
+          {/* Bottom photo gradient — strong enough for white text */}
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/55 via-black/15 to-transparent pointer-events-none" />
 
           {isTop && (
             <>
+              {/* Like / Pass washes — calm tinted overlays, no rotated stamps */}
               <div
-                className="absolute top-6 left-6 pointer-events-none"
-                style={{ opacity: likeOpacity }}
-              >
-                <div className="border-[3px] border-warm rounded-xl px-3 py-1.5 -rotate-12 bg-white/10 backdrop-blur-sm">
-                  <span className="text-warm text-2xl font-extrabold tracking-wider">
-                    LIKED
-                  </span>
-                </div>
-              </div>
+                aria-hidden
+                className="absolute inset-0 pointer-events-none bg-warm mix-blend-multiply"
+                style={{ opacity: likeProgress * 0.35 }}
+              />
               <div
-                className="absolute top-6 right-6 pointer-events-none"
-                style={{ opacity: passOpacity }}
+                aria-hidden
+                className="absolute inset-0 pointer-events-none bg-ink-900 mix-blend-multiply"
+                style={{ opacity: passProgress * 0.45 }}
+              />
+
+              {/* Confirmation chips — single object, not a stamp */}
+              <div
+                className="absolute top-6 left-1/2 -translate-x-1/2 pointer-events-none"
+                style={{
+                  opacity: Math.max(likeProgress, passProgress),
+                  transform: `translate(-50%, ${(1 - Math.max(likeProgress, passProgress)) * -8}px)`,
+                  transition: dragRef.current ? 'none' : 'opacity 200ms ease-out, transform 200ms ease-out',
+                }}
               >
-                <div className="border-[3px] border-ink-900 rounded-xl px-3 py-1.5 rotate-12 bg-white/10 backdrop-blur-sm">
-                  <span className="text-ink-900 text-2xl font-extrabold tracking-wider">
-                    PASS
+                {likeProgress > passProgress ? (
+                  <span className="inline-flex items-center gap-1.5 bg-warm text-white text-[13px] font-semibold tracking-wide uppercase px-3 h-8 rounded-full shadow-warm">
+                    <Heart size={14} strokeWidth={2.5} fill="currentColor" />
+                    Liked
                   </span>
-                </div>
+                ) : (
+                  <span className="inline-flex items-center gap-1.5 bg-ink-900 text-white text-[13px] font-semibold tracking-wide uppercase px-3 h-8 rounded-full">
+                    <X size={14} strokeWidth={2.5} />
+                    Pass
+                  </span>
+                )}
               </div>
             </>
           )}
 
-          <div className="absolute top-4 right-4 bg-black/40 text-white text-[11px] font-medium px-2 py-1 rounded-full backdrop-blur-sm pointer-events-none">
+          <div className="absolute top-4 right-4 bg-black/45 text-white text-[11px] font-medium px-2 py-1 rounded-full backdrop-blur-sm pointer-events-none tabular-nums">
             1 / {listing.photos.length}
           </div>
         </div>

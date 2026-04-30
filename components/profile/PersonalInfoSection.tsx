@@ -55,8 +55,8 @@ export function PersonalInfoSection({ profile, onUpdate, onSaveStatus }: Props) 
   }
 
   return (
-    <section className="bg-white rounded-2xl shadow-[0_2px_12px_rgba(15,20,25,0.06)] p-5">
-      <h2 className="text-xl font-semibold text-[#0F1419] tracking-tight mb-4">Personal info</h2>
+    <section className="bg-white rounded-2xl shadow-soft p-5">
+      <h2 className="text-xl font-semibold text-ink-900 tracking-tight mb-4">Personal info</h2>
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
           <Field label="First name">
@@ -121,12 +121,12 @@ export function PersonalInfoSection({ profile, onUpdate, onSaveStatus }: Props) 
 }
 
 const inputCls =
-  'w-full h-12 rounded-xl border border-[#E6E8EB] bg-white px-4 text-base text-[#0F1419] placeholder:text-[#8A95A1] focus:outline-none focus:border-[#0077C8] focus:ring-2 focus:ring-[#0077C8]/20 transition-colors'
+  'w-full h-12 rounded-xl border border-border bg-white px-4 text-base text-ink-900 placeholder:text-ink-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-[border-color,box-shadow] duration-150 ease-out'
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-[#4A5560] mb-1.5">{label}</label>
+      <label className="block text-sm font-medium text-ink-600 mb-1.5">{label}</label>
       {children}
     </div>
   )

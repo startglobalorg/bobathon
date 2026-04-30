@@ -2,41 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-/* Leaflet CSS */
 @import 'leaflet/dist/leaflet.css';
 
-/* Made with Bob */
+@layer base {
+  :root {
+    /* Design tokens — single source of truth for motion */
+    --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+    --color-border: #e6e8eb;
+    --color-accent: #0077c8;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #f7f8fa;
+  color: #0f1419;
+  -webkit-font-smoothing: antialiased;
+}
+
+.apartner-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 999px;
+  outline: none;
+}
+.apartner-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--color-accent);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(15, 20, 25, 0.15);
+}
+.apartner-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--color-accent);
+  cursor: pointer;
+}
+
+/* Toast — both directions, interruptible */
+.toast-enter {
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+}
+.toast-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 220ms var(--ease-out-strong),
+    transform 220ms var(--ease-out-strong);
+}
+.toast-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.toast-exit-active {
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transition:
+    opacity 180ms ease-out,
+    transform 180ms ease-out;
+}
+
+/* Sheet — iOS drawer curve, both directions */
+.sheet-enter {
+  transform: translateY(100%);
+}
+.sheet-enter-active {
+  transform: translateY(0);
+  transition: transform 320ms var(--ease-drawer);
+}
+.sheet-exit {
+  transform: translateY(0);
+}
+.sheet-exit-active {
+  transform: translateY(100%);
+  transition: transform 240ms var(--ease-drawer);
+}
+
+.backdrop-enter {
+  opacity: 0;
+}
+.backdrop-enter-active {
+  opacity: 1;
+  transition: opacity 220ms ease-out;
+}
+.backdrop-exit {
+  opacity: 1;
+}
+.backdrop-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+/* Subtle skeleton shimmer */
+@keyframes apartner-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.apartner-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 20, 25, 0.04) 0%,
+    rgba(15, 20, 25, 0.07) 40%,
+    rgba(15, 20, 25, 0.04) 80%
+  );
+  background-size: 200% 100%;
+  animation: apartner-shimmer 1.6s linear infinite;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast-enter-active,
+  .toast-exit-active,
+  .sheet-enter-active,
+  .sheet-exit-active {
+    transition-duration: 1ms;
+    transform: none;
+  }
+  .apartner-skeleton {
+    animation: none;
+  }
+}

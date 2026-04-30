@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import {
   ArrowRight,
@@ -17,6 +17,7 @@ import { getApplications } from '@/lib/api/applications-client';
 import { getListings } from '@/lib/api/listings-client';
 import { updateApplicationStatus } from '@/lib/api/applications-client';
 import type { Application, ApplicationStatus, Listing } from '@/lib/types';
+import { StatusSkeleton } from './StatusSkeleton';
 
 export function StatusView() {
   const router = useRouter();
@@ -24,13 +25,17 @@ export function StatusView() {
 
   const [applications, setApplications] = useState<Application[]>([]);
   const [listingsMap, setListingsMap] = useState<Map<string, Listing>>(new Map());
+  const [loading, setLoading] = useState(true);
   const [reviewingId, setReviewingId] = useState<string | null>(null);
 
   useEffect(() => {
-    Promise.all([getApplications(), getListings()]).then(([apps, lsts]) => {
-      setApplications(apps);
-      setListingsMap(new Map(lsts.map((l) => [l.id, l])));
-    }).catch(console.error);
+    Promise.all([getApplications(), getListings()])
+      .then(([apps, lsts]) => {
+        setApplications(apps);
+        setListingsMap(new Map(lsts.map((l) => [l.id, l])));
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, []);
 
   const reviewing = applications.find((a) => a.id === reviewingId);
@@ -41,7 +46,11 @@ export function StatusView() {
   const approve = async (id: string) => {
     await updateApplicationStatus(id, 'applied');
     setApplications((prev) =>
-      prev.map((a) => (a.id === id ? { ...a, status: 'applied' as ApplicationStatus, updatedAt: Date.now() } : a)),
+      prev.map((a) =>
+        a.id === id
+          ? { ...a, status: 'applied' as ApplicationStatus, updatedAt: Date.now() }
+          : a,
+      ),
     );
     showToast('Sent. The owner will be in touch.', 2200);
   };
@@ -65,119 +74,126 @@ export function StatusView() {
 
   return (
     <div className="min-h-[100dvh] bg-white pb-32">
-      <header className="px-5 pt-[max(env(safe-area-inset-top),16px)] pb-3 flex items-center justify-between bg-white border-b border-border sticky top-0 z-20">
+      <header className="px-5 pt-[max(env(safe-area-inset-top),16px)] pb-3 flex items-center justify-between bg-white/90 backdrop-blur-md border-b border-border sticky top-0 z-20">
         <h1 className="text-[20px] font-semibold tracking-[-0.01em] text-ink-900">
           Status
         </h1>
-        <span className="text-[13px] text-ink-600">
-          {applications.length} applications
+        <span className="text-[13px] text-ink-600 tabular-nums">
+          {applications.length} application{applications.length === 1 ? '' : 's'}
         </span>
       </header>
 
       <div className="px-5 pt-5 space-y-8">
-        {pending.length > 0 && (
-          <StatusGroup title="Awaiting your review" tone="warm" count={pending.length}>
-            {pending.map((a) => {
-              const l = byListing(a.listingId);
-              if (!l) return null;
-              return (
-                <button
-                  type="button"
-                  key={a.id}
-                  onClick={() => setReviewingId(a.id)}
-                  className="w-full text-left rounded-2xl border border-warm/40 bg-warm-soft/40 p-3 flex gap-3 active:scale-[0.99] transition-transform"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={l.photos[0]}
-                    className="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-                    alt=""
-                  />
-                  <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
-                    <div>
-                      <p className="text-[12px] font-medium text-ink-600">
-                        {l.neighborhood} · {fmtCHF(l.price)}/mo
-                      </p>
-                      <p className="text-[15px] font-semibold text-ink-900 truncate">
-                        {l.title}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-[13px] font-semibold text-warm-ink">
-                      <Sparkles size={14} strokeWidth={1.5} />
-                      Review application
-                      <ArrowRight size={14} strokeWidth={1.5} />
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
-          </StatusGroup>
-        )}
+        {loading ? (
+          <StatusSkeleton />
+        ) : (
+          <>
+            {pending.length > 0 && (
+              <StatusGroup title="Awaiting your review" count={pending.length}>
+                {pending.map((a) => {
+                  const l = byListing(a.listingId);
+                  if (!l) return null;
+                  return (
+                    <button
+                      type="button"
+                      key={a.id}
+                      onClick={() => setReviewingId(a.id)}
+                      className="w-full text-left rounded-2xl bg-warm-soft p-3 flex gap-3 active:scale-[0.99] transition-transform relative overflow-hidden"
+                    >
+                      <div className="absolute left-0 top-0 bottom-0 w-1 bg-warm" />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={l.photos[0]}
+                        className="w-20 h-20 rounded-xl object-cover flex-shrink-0"
+                        alt=""
+                      />
+                      <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+                        <div>
+                          <p className="text-[12px] font-medium text-ink-600">
+                            {l.neighborhood} · {fmtCHF(l.price)}/mo
+                          </p>
+                          <p className="text-[15px] font-semibold text-ink-900 truncate">
+                            {l.title}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[13px] font-semibold text-warm-ink">
+                          <Sparkles size={14} strokeWidth={1.8} />
+                          Review application
+                          <ArrowRight size={14} strokeWidth={1.8} />
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </StatusGroup>
+            )}
 
-        {active.length > 0 && (
-          <StatusGroup title="Active applications" count={active.length}>
-            {active.map((a) => {
-              const l = byListing(a.listingId);
-              if (!l) return null;
-              return (
-                <ApplicationRow
-                  key={a.id}
-                  app={a}
-                  listing={l}
-                  onClick={() => openListing(l.id)}
-                />
-              );
-            })}
-          </StatusGroup>
-        )}
+            {active.length > 0 && (
+              <StatusGroup title="Active applications" count={active.length}>
+                {active.map((a) => {
+                  const l = byListing(a.listingId);
+                  if (!l) return null;
+                  return (
+                    <ApplicationRow
+                      key={a.id}
+                      app={a}
+                      listing={l}
+                      onClick={() => openListing(l.id)}
+                    />
+                  );
+                })}
+              </StatusGroup>
+            )}
 
-        {decided.length > 0 && (
-          <StatusGroup title="Decided" count={decided.length}>
-            {decided.map((a) => {
-              const l = byListing(a.listingId);
-              if (!l) return null;
-              return (
-                <ApplicationRow
-                  key={a.id}
-                  app={a}
-                  listing={l}
-                  onClick={() => openListing(l.id)}
-                />
-              );
-            })}
-          </StatusGroup>
-        )}
+            {decided.length > 0 && (
+              <StatusGroup title="Decided" count={decided.length}>
+                {decided.map((a) => {
+                  const l = byListing(a.listingId);
+                  if (!l) return null;
+                  return (
+                    <ApplicationRow
+                      key={a.id}
+                      app={a}
+                      listing={l}
+                      onClick={() => openListing(l.id)}
+                    />
+                  );
+                })}
+              </StatusGroup>
+            )}
 
-        {applications.length === 0 && (
-          <div className="text-center py-16">
-            <div className="w-14 h-14 rounded-full bg-surface-soft flex items-center justify-center mx-auto mb-4 text-ink-400">
-              <Inbox size={24} strokeWidth={1.5} />
-            </div>
-            <p className="text-[15px] font-semibold text-ink-900 mb-1">
-              No applications yet
-            </p>
-            <p className="text-[14px] text-ink-600 max-w-xs mx-auto">
-              Swipe right on a flat to start your first application.
-            </p>
-          </div>
+            {applications.length === 0 && (
+              <div className="text-center py-16">
+                <div className="w-14 h-14 rounded-full bg-surface-soft flex items-center justify-center mx-auto mb-4 text-ink-400">
+                  <Inbox size={24} strokeWidth={1.5} />
+                </div>
+                <p className="text-[15px] font-semibold text-ink-900 mb-1">
+                  No applications yet
+                </p>
+                <p className="text-[14px] text-ink-600 max-w-xs mx-auto">
+                  Swipe right on a flat to start your first application.
+                </p>
+              </div>
+            )}
+          </>
         )}
       </div>
 
-      {reviewing && reviewingListing != null && (
-        <ReviewModal
-          application={reviewing}
-          listing={reviewingListing}
-          onClose={() => setReviewingId(null)}
-          onApprove={() => {
-            void approve(reviewing.id);
-            setReviewingId(null);
-          }}
-          onDiscard={() => {
-            void discard(reviewing.id);
-            setReviewingId(null);
-          }}
-        />
-      )}
+      <ReviewModal
+        application={reviewing ?? null}
+        listing={reviewingListing ?? null}
+        onClose={() => setReviewingId(null)}
+        onApprove={() => {
+          if (!reviewing) return;
+          void approve(reviewing.id);
+          setReviewingId(null);
+        }}
+        onDiscard={() => {
+          if (!reviewing) return;
+          void discard(reviewing.id);
+          setReviewingId(null);
+        }}
+      />
     </div>
   );
 }
@@ -185,26 +201,20 @@ export function StatusView() {
 function StatusGroup({
   title,
   count,
-  tone,
   children,
 }: {
   title: string;
   count: number;
-  tone?: 'warm';
   children: ReactNode;
 }) {
   return (
     <section>
       <div className="flex items-baseline gap-2 mb-3">
-        <h2
-          className={`text-[12px] font-semibold uppercase tracking-[0.06em] ${
-            tone === 'warm' ? 'text-warm-ink' : 'text-ink-400'
-          }`}
-        >
+        <h2 className="text-[12px] font-semibold uppercase tracking-[0.06em] text-ink-400">
           {title}
         </h2>
         <span className="text-[12px] text-ink-400">·</span>
-        <span className="text-[12px] text-ink-400 font-medium">{count}</span>
+        <span className="text-[12px] text-ink-400 font-medium tabular-nums">{count}</span>
       </div>
       <div className="space-y-2.5">{children}</div>
     </section>
@@ -247,19 +257,13 @@ function ApplicationRow({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full text-left rounded-2xl border p-3 flex gap-3 active:scale-[0.99] transition-transform relative overflow-hidden ${
-        isAccepted
-          ? 'border-border bg-white'
-          : isRejected
-            ? 'border-border bg-surface-soft opacity-80'
-            : 'border-border bg-white'
-      }`}
+      className="w-full text-left rounded-2xl border border-border bg-white p-3 flex gap-3 active:scale-[0.99] transition-transform relative overflow-hidden"
     >
       {isAccepted && <div className="absolute left-0 top-0 bottom-0 w-1 bg-warm" />}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={listing.photos[0]}
-        className={`w-20 h-20 rounded-xl object-cover flex-shrink-0 ${
+        className={`w-20 h-20 rounded-xl object-cover flex-shrink-0 transition ${
           isRejected ? 'grayscale' : ''
         }`}
         alt=""
@@ -269,7 +273,11 @@ function ApplicationRow({
           <p className="text-[12px] font-medium text-ink-600">
             {listing.neighborhood} · {fmtCHF(listing.price)}/mo
           </p>
-          <p className="text-[15px] font-semibold text-ink-900 truncate leading-tight">
+          <p
+            className={`text-[15px] font-semibold truncate leading-tight ${
+              isRejected ? 'text-ink-600' : 'text-ink-900'
+            }`}
+          >
             {listing.title}
           </p>
         </div>
@@ -281,7 +289,7 @@ function ApplicationRow({
             {app.status === 'visit_booked' && <Calendar size={12} strokeWidth={2} />}
             {pill.label}
           </Pill>
-          <span className="text-[11px] text-ink-400 font-medium">
+          <span className="text-[11px] text-ink-400 font-medium tabular-nums">
             {timeSince(app.updatedAt)}
           </span>
         </div>
@@ -295,6 +303,8 @@ function ApplicationRow({
   );
 }
 
+type ModalPhase = 'enter' | 'enter-active' | 'exit' | 'exit-active' | null;
+
 function ReviewModal({
   application,
   listing,
@@ -302,43 +312,129 @@ function ReviewModal({
   onApprove,
   onDiscard,
 }: {
-  application: Application;
-  listing: Listing;
+  application: Application | null;
+  listing: Listing | null;
   onClose: () => void;
   onApprove: () => void;
   onDiscard: () => void;
 }) {
+  const [visible, setVisible] = useState<{
+    application: Application;
+    listing: Listing;
+  } | null>(null);
+  const [phase, setPhase] = useState<ModalPhase>(null);
+
+  // Read latest props inside the effect without subscribing to their identity,
+  // so re-renders from setVisible/setPhase don't re-trigger the effect and
+  // cancel the rAF that drives the enter transition.
+  const latestProps = useRef<{ application: Application | null; listing: Listing | null }>({
+    application,
+    listing,
+  });
+  latestProps.current = { application, listing };
+
+  const shouldShow = Boolean(application && listing);
+  const hadContentRef = useRef(false);
+
   useEffect(() => {
+    if (shouldShow) {
+      const { application: a, listing: l } = latestProps.current;
+      if (!a || !l) return;
+      hadContentRef.current = true;
+      setVisible({ application: a, listing: l });
+      setPhase('enter');
+      const r = requestAnimationFrame(() => setPhase('enter-active'));
+      return () => cancelAnimationFrame(r);
+    }
+
+    // Don't run an exit transition on initial mount when there's nothing to exit.
+    if (!hadContentRef.current) return;
+
+    setPhase('exit');
+    const r = requestAnimationFrame(() => setPhase('exit-active'));
+    const t = setTimeout(() => {
+      hadContentRef.current = false;
+      setVisible(null);
+      setPhase(null);
+    }, 240);
+    return () => {
+      cancelAnimationFrame(r);
+      clearTimeout(t);
+    };
+  }, [shouldShow]);
+
+  useEffect(() => {
+    if (!visible) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = prev;
     };
-  }, []);
+  }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [visible, onClose]);
+
+  if (!visible) return null;
+
+  const backdropClass =
+    phase === 'enter'
+      ? 'backdrop-enter'
+      : phase === 'enter-active'
+        ? 'backdrop-enter backdrop-enter-active'
+        : phase === 'exit'
+          ? 'backdrop-exit'
+          : phase === 'exit-active'
+            ? 'backdrop-exit backdrop-exit-active'
+            : '';
+
+  const sheetClass =
+    phase === 'enter'
+      ? 'sheet-enter'
+      : phase === 'enter-active'
+        ? 'sheet-enter sheet-enter-active'
+        : phase === 'exit'
+          ? 'sheet-exit'
+          : phase === 'exit-active'
+            ? 'sheet-exit sheet-exit-active'
+            : '';
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
+    <div
+      className="fixed inset-0 z-50 flex items-end justify-center"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Review application"
+    >
       <div
-        className="absolute inset-0 bg-ink-900/40 animate-fade"
+        className={`absolute inset-0 bg-ink-900/40 ${backdropClass}`}
         onClick={onClose}
       />
-      <div className="relative w-full max-w-md bg-white rounded-t-3xl max-h-[92dvh] flex flex-col animate-sheet">
+      <div
+        className={`relative w-full max-w-md bg-white rounded-t-3xl max-h-[92dvh] flex flex-col shadow-sheet ${sheetClass}`}
+      >
         <div className="px-5 pt-3 flex justify-center">
           <div className="w-10 h-1 rounded-full bg-border" />
         </div>
         <div className="px-5 pt-3 pb-4 flex items-start justify-between border-b border-border">
           <div className="min-w-0 pr-4">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.06em] text-warm">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.06em] text-warm-ink">
               Cover letter draft
             </p>
             <p className="text-[16px] font-semibold text-ink-900 truncate mt-0.5">
-              {listing.neighborhood} · {listing.street}
+              {visible.listing.neighborhood} · {visible.listing.street}
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-surface-soft flex items-center justify-center text-ink-600 flex-shrink-0"
+            className="w-10 h-10 rounded-full bg-surface-soft hover:bg-border flex items-center justify-center text-ink-600 flex-shrink-0 active:scale-95 transition"
             aria-label="Close"
           >
             <X size={18} strokeWidth={1.5} />
@@ -349,16 +445,17 @@ function ReviewModal({
           <div className="rounded-2xl bg-surface-soft p-4 mb-4 flex gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={listing.photos[0]}
+              src={visible.listing.photos[0]}
               className="w-14 h-14 rounded-lg object-cover"
               alt=""
             />
             <div className="flex-1 min-w-0">
               <p className="text-[14px] font-semibold text-ink-900 truncate">
-                {listing.title}
+                {visible.listing.title}
               </p>
               <p className="text-[12px] text-ink-600">
-                {listing.rooms} rooms · {listing.sqm} m² · {fmtCHF(listing.price)}/mo
+                {visible.listing.rooms} rooms · {visible.listing.sqm} m² ·{' '}
+                {fmtCHF(visible.listing.price)}/mo
               </p>
             </div>
           </div>
@@ -373,11 +470,11 @@ function ReviewModal({
           </div>
 
           <div className="text-[14px] text-ink-900 leading-[1.65] whitespace-pre-line">
-            {application.coverLetter}
+            {visible.application.coverLetter}
           </div>
         </div>
 
-        <div className="border-t border-border px-5 pt-3 pb-[max(env(safe-area-inset-bottom),16px)]">
+        <div className="border-t border-border px-5 pt-3 pb-[max(env(safe-area-inset-bottom),16px)] bg-white">
           <button
             type="button"
             onClick={onApprove}
@@ -388,7 +485,7 @@ function ReviewModal({
           <button
             type="button"
             onClick={onDiscard}
-            className="w-full text-ink-600 text-[14px] font-medium h-10"
+            className="w-full text-ink-600 text-[14px] font-medium h-10 hover:text-error transition-colors active:scale-[0.99]"
           >
             Discard
           </button>

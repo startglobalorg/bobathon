@@ -1,22 +1,88 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState, type ReactNode } from 'react';
-import { ArrowLeft, Bookmark, Calendar, Check, MapPin } from 'lucide-react';
+import { useEffect, useState, type ReactNode } from 'react';
+import { ArrowLeft, Bookmark, Calendar, Check, ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
 import { fmtCHF } from '@/lib/format';
-import { likeListingApi } from '@/lib/api/applications-client';
+import { getApplications, likeListingApi } from '@/lib/api/applications-client';
+import { useAppStore } from '@/lib/store';
 import type { Listing } from '@/lib/types';
+
+const BOOKMARKS_KEY = 'apartner.bookmarks.v1';
+
+function readBookmarks(): string[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = window.localStorage.getItem(BOOKMARKS_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed.filter((x) => typeof x === 'string') as string[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeBookmarks(ids: string[]) {
+  if (typeof window === 'undefined') return;
+  window.localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(ids));
+}
 
 export function ListingDetail({ listing }: { listing: Listing }) {
   const router = useRouter();
+  const showToast = useAppStore((s) => s.showToast);
   const [photoIdx, setPhotoIdx] = useState(0);
+  const [bookmarked, setBookmarked] = useState(false);
+  const [bookmarkPulse, setBookmarkPulse] = useState(false);
+  const [hasApplied, setHasApplied] = useState(false);
+  const [applying, setApplying] = useState(false);
+
+  useEffect(() => {
+    setBookmarked(readBookmarks().includes(listing.id));
+  }, [listing.id]);
+
+  useEffect(() => {
+    let cancelled = false;
+    getApplications()
+      .then((apps) => {
+        if (cancelled) return;
+        setHasApplied(apps.some((a) => a.listingId === listing.id));
+      })
+      .catch(console.error);
+    return () => {
+      cancelled = true;
+    };
+  }, [listing.id]);
 
   const back = () => router.back();
 
-  const apply = () => {
-    likeListingApi(listing.id).catch(console.error);
-    router.push('/status');
+  const toggleBookmark = () => {
+    const current = readBookmarks();
+    const isOn = current.includes(listing.id);
+    const next = isOn ? current.filter((id) => id !== listing.id) : [...current, listing.id];
+    writeBookmarks(next);
+    setBookmarked(!isOn);
+    setBookmarkPulse(true);
+    setTimeout(() => setBookmarkPulse(false), 220);
+    showToast(isOn ? 'Removed from saved' : 'Saved for later', 1600);
   };
+
+  const apply = async () => {
+    if (hasApplied || applying) return;
+    setApplying(true);
+    try {
+      await likeListingApi(listing.id);
+      setHasApplied(true);
+      router.push('/status');
+    } catch (err) {
+      console.error(err);
+      setApplying(false);
+    }
+  };
+
+  const goPrev = () => setPhotoIdx((i) => Math.max(0, i - 1));
+  const goNext = () => setPhotoIdx((i) => Math.min(listing.photos.length - 1, i + 1));
+  const hasPrev = photoIdx > 0;
+  const hasNext = photoIdx < listing.photos.length - 1;
 
   return (
     <div className="min-h-[100dvh] bg-white flex flex-col pb-28">
@@ -27,42 +93,71 @@ export function ListingDetail({ listing }: { listing: Listing }) {
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
         />
+
+        {/* Soft top mask so chrome reads on bright photos */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/30 to-transparent pointer-events-none" />
+
         <div className="absolute top-3 left-0 right-0 px-4 flex gap-1">
           {listing.photos.map((_, i) => (
             <div
               key={i}
-              className={`flex-1 h-1 rounded-full transition-all ${
-                i === photoIdx ? 'bg-white' : 'bg-white/40'
-              }`}
-            />
+              className="flex-1 h-1 rounded-full bg-white/40 overflow-hidden"
+            >
+              <div
+                className="h-full bg-white transition-[width] duration-300 ease-out-strong"
+                style={{ width: i === photoIdx ? '100%' : i < photoIdx ? '100%' : '0%' }}
+              />
+            </div>
           ))}
         </div>
+
         <button
           type="button"
-          onClick={() => setPhotoIdx((i) => Math.max(0, i - 1))}
-          className="absolute left-0 top-0 bottom-0 w-1/3"
+          onClick={goPrev}
           aria-label="Previous photo"
+          className="absolute left-0 top-0 bottom-0 w-1/2"
         />
         <button
           type="button"
-          onClick={() => setPhotoIdx((i) => Math.min(listing.photos.length - 1, i + 1))}
-          className="absolute right-0 top-0 bottom-0 w-1/3"
+          onClick={goNext}
           aria-label="Next photo"
+          className="absolute right-0 top-0 bottom-0 w-1/2"
         />
+
+        {hasPrev && (
+          <div className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center pointer-events-none">
+            <ChevronLeft size={18} strokeWidth={2} />
+          </div>
+        )}
+        {hasNext && (
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center pointer-events-none">
+            <ChevronRight size={18} strokeWidth={2} />
+          </div>
+        )}
+
         <button
           type="button"
           onClick={back}
-          className="absolute top-[max(env(safe-area-inset-top),16px)] left-4 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sheet"
+          className="absolute top-[max(env(safe-area-inset-top),16px)] left-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-sheet active:scale-95 transition-transform"
           aria-label="Back"
         >
           <ArrowLeft size={20} strokeWidth={2} />
         </button>
         <button
           type="button"
-          className="absolute top-[max(env(safe-area-inset-top),16px)] right-4 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sheet"
-          aria-label="Save"
+          onClick={toggleBookmark}
+          className="absolute top-[max(env(safe-area-inset-top),16px)] right-4 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center shadow-sheet active:scale-90 transition-transform"
+          aria-label={bookmarked ? 'Remove from saved' : 'Save'}
+          aria-pressed={bookmarked}
         >
-          <Bookmark size={18} strokeWidth={1.5} />
+          <Bookmark
+            size={18}
+            strokeWidth={1.5}
+            className={`transition-transform duration-200 ease-out-strong ${
+              bookmarked ? 'text-accent' : 'text-ink-900'
+            } ${bookmarkPulse ? 'scale-110' : 'scale-100'}`}
+            fill={bookmarked ? 'currentColor' : 'none'}
+          />
         </button>
       </div>
 
@@ -78,7 +173,7 @@ export function ListingDetail({ listing }: { listing: Listing }) {
         </h1>
 
         <Section title="At a glance">
-          <div className="grid grid-cols-3 gap-2.5">
+          <div className="grid grid-cols-3 gap-3">
             <Stat label="Rooms" value={listing.rooms} />
             <Stat label="Size" value={`${listing.sqm} m²`} />
             <Stat label="Price" value={fmtCHF(listing.price)} sub="/ month" />
@@ -109,11 +204,12 @@ export function ListingDetail({ listing }: { listing: Listing }) {
         </Section>
 
         <Section title="Where it is">
-          <div className="rounded-2xl overflow-hidden border border-border h-44 relative bg-surface-soft">
+          <figure className="rounded-2xl overflow-hidden border border-border h-44 relative bg-surface-soft">
             <svg
               className="absolute inset-0 w-full h-full"
               viewBox="0 0 400 200"
               preserveAspectRatio="none"
+              aria-hidden
             >
               <rect width="400" height="200" fill="#F2F4F7" />
               <path
@@ -170,11 +266,14 @@ export function ListingDetail({ listing }: { listing: Listing }) {
             <div className="absolute bottom-3 left-3 bg-white rounded-lg px-2.5 py-1.5 text-[12px] font-medium text-ink-900 shadow-soft">
               {listing.street}
             </div>
-          </div>
+            <figcaption className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 text-[11px] font-medium text-ink-600">
+              Approximate area
+            </figcaption>
+          </figure>
         </Section>
 
         <Section title="Availability">
-          <div className="flex items-center gap-3 bg-surface-soft rounded-xl p-4">
+          <div className="flex items-center gap-3 bg-surface-soft rounded-2xl p-4">
             <div className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center">
               <Calendar size={18} className="text-accent" strokeWidth={1.5} />
             </div>
@@ -188,23 +287,39 @@ export function ListingDetail({ listing }: { listing: Listing }) {
         </Section>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 z-30">
-        <div className="max-w-md mx-auto bg-white border-t border-border px-5 pt-3 pb-[max(env(safe-area-inset-bottom),16px)]">
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={back}
-              className="text-ink-600 text-[15px] font-medium px-4 h-12 active:opacity-60"
-            >
-              Pass
-            </button>
-            <button
-              type="button"
-              onClick={apply}
-              className="flex-1 bg-accent hover:bg-accent-hover text-white rounded-full h-12 font-medium active:scale-[0.98] transition"
-            >
-              Apply
-            </button>
+      <div className="fixed bottom-0 left-0 right-0 z-30 pointer-events-none">
+        <div className="max-w-md mx-auto pointer-events-none">
+          {/* Soft fade above the action bar */}
+          <div className="h-6 bg-gradient-to-t from-white via-white/85 to-transparent" />
+          <div className="bg-white px-5 pt-3 pb-[max(env(safe-area-inset-bottom),16px)] pointer-events-auto">
+            {hasApplied ? (
+              <div
+                className="w-full bg-accent-soft text-accent-hover rounded-full h-12 font-medium flex items-center justify-center gap-2"
+                role="status"
+                aria-live="polite"
+              >
+                <Check size={18} strokeWidth={2.5} />
+                Applied
+              </div>
+            ) : (
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={back}
+                  className="bg-white border border-border text-ink-900 rounded-full h-12 px-5 font-medium active:scale-[0.98] transition"
+                >
+                  Pass
+                </button>
+                <button
+                  type="button"
+                  onClick={apply}
+                  disabled={applying}
+                  className="flex-1 bg-accent hover:bg-accent-hover text-white rounded-full h-12 font-medium active:scale-[0.98] transition disabled:opacity-60"
+                >
+                  {applying ? 'Applying…' : 'Apply'}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -233,11 +348,11 @@ function Stat({
   sub?: string;
 }) {
   return (
-    <div className="rounded-xl border border-border p-3">
+    <div className="rounded-2xl border border-border p-3">
       <p className="text-[11px] uppercase tracking-wide text-ink-400 font-medium mb-1">
         {label}
       </p>
-      <p className="text-[15px] font-semibold text-ink-900 leading-tight">
+      <p className="text-[15px] font-semibold text-ink-900 leading-tight tabular-nums">
         {value}
         {sub && <span className="text-ink-400 font-normal text-[12px]"> {sub}</span>}
       </p>
