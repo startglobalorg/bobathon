@@ -14,7 +14,9 @@ USER_AGENT = (
 
 
 def extract_json_balanced(html: str, marker: str) -> str | None:
-    """Fallback: find JSON object by balanced-brace counting after marker."""
+    # Fallback when regex fails. Note: counts braces without tracking string
+    # boundaries, so may fail if JSON string values contain literal { or }.
+    # This is acceptable since Homegate's machine-generated JSON avoids this.
     idx = html.find(marker)
     if idx == -1:
         return None
