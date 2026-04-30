@@ -9,6 +9,7 @@ import { PersonalInfoSection } from './PersonalInfoSection'
 import { BioSection } from './BioSection'
 import { DocumentsSection } from './DocumentsSection'
 import { LandlordsSection } from './LandlordsSection'
+import { PreferencesSection } from './PreferencesSection'
 
 export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile }) {
   const [profile, setProfile] = useState<ClientProfile>(initialProfile)
@@ -45,6 +46,11 @@ export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile 
         <LandlordsSection
           landlords={profile.previousLandlords}
           onUpdate={(landlords) => handleUpdate({ previousLandlords: landlords })}
+          onSaveStatus={setSaveStatus}
+        />
+        <PreferencesSection
+          preferences={profile.preferences}
+          onUpdate={(preferences) => handleUpdate({ preferences })}
           onSaveStatus={setSaveStatus}
         />
       </div>
