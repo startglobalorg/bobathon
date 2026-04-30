@@ -5,6 +5,8 @@ import { computeCompleteness } from '@/lib/completeness'
 import { CompletenessHeader } from './CompletenessHeader'
 import { SaveIndicator, type SaveStatus } from './SaveIndicator'
 import { BottomNav } from '@/components/nav/BottomNav'
+import { PersonalInfoSection } from './PersonalInfoSection'
+import { BioSection } from './BioSection'
 
 export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile }) {
   const [profile, setProfile] = useState<ClientProfile>(initialProfile)
@@ -23,7 +25,16 @@ export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile 
         <div className="flex justify-end h-5">
           <SaveIndicator status={saveStatus} />
         </div>
-        {/* Sections added in tasks 10–14 */}
+        <PersonalInfoSection
+          profile={profile}
+          onUpdate={handleUpdate}
+          onSaveStatus={setSaveStatus}
+        />
+        <BioSection
+          profile={profile}
+          onUpdate={handleUpdate}
+          onSaveStatus={setSaveStatus}
+        />
       </div>
       <BottomNav />
     </div>
