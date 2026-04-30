@@ -1,6 +1,6 @@
 services:
   apartner:
-    image: ghcr.io/<your-org>/apartner:latest
+    image: ghcr.io/startglobalorg/bobathon:latest
     container_name: apartner
     restart: unless-stopped
     ports:
