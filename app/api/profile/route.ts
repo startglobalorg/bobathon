@@ -1,13 +1,15 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { getProfileId } from '@/lib/session'
 
 export const dynamic = 'force-dynamic'
 import { profileUpdateSchema } from '@/lib/validation/profile'
 import { deleteUploadedFile } from '@/lib/upload'
 
 export async function GET() {
+  const profileId = await getProfileId()
   const profile = await prisma.profile.findUniqueOrThrow({
-    where: { id: 1 },
+    where: { id: profileId },
     include: { previousLandlords: true, preferences: true },
   })
   return NextResponse.json(profile)
@@ -20,11 +22,12 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })
   }
 
-  const current = await prisma.profile.findUniqueOrThrow({ where: { id: 1 } })
+  const profileId = await getProfileId()
+  const current = await prisma.profile.findUniqueOrThrow({ where: { id: profileId } })
   const data = parsed.data
 
   const profile = await prisma.profile.update({
-    where: { id: 1 },
+    where: { id: profileId },
     data: {
       ...data,
       birthday: data.birthday ?? undefined,

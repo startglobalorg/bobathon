@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { getProfileId } from '@/lib/session';
 import { COVER_LETTER_DE } from '@/lib/cover-letter';
 import type { Application, ApplicationStatus } from '@/lib/types';
 
@@ -20,8 +21,9 @@ function toUiApplication(a: {
 }
 
 export async function GET() {
+  const profileId = await getProfileId();
   const applications = await prisma.application.findMany({
-    where: { profileId: 1 },
+    where: { profileId },
     orderBy: { swipedAt: 'desc' },
   });
   return NextResponse.json(applications.map(toUiApplication));
@@ -38,10 +40,11 @@ export async function POST(req: Request) {
   }
   const { listingId } = body as { listingId: string };
 
+  const profileId = await getProfileId();
   const application = await prisma.application.upsert({
-    where: { profileId_listingId: { profileId: 1, listingId } },
+    where: { profileId_listingId: { profileId, listingId } },
     create: {
-      profileId: 1,
+      profileId,
       listingId,
       status: 'pending_review',
       generatedCoverLetter: COVER_LETTER_DE,
