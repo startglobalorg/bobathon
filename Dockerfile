@@ -26,10 +26,11 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Prisma CLI + engines + schema/migrations so the entrypoint can run `prisma migrate deploy`.
+# Prisma CLI + engines + schema/migrations + prod seed
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/prisma ./node_modules/prisma
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
+COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 
 # Persistent dirs must exist and be owned by nextjs BEFORE the USER switch,
 # otherwise volumes mount as root and the app can't write to them.
