@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState, type ReactNode } from 'react';
 import { ArrowLeft, Bookmark, Calendar, Check, ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
+import { ListingMap } from './ListingMap';
 import { fmtCHF } from '@/lib/format';
 import { getApplications, likeListingApi } from '@/lib/api/applications-client';
 import { useAppStore } from '@/lib/store';
@@ -204,72 +205,7 @@ export function ListingDetail({ listing }: { listing: Listing }) {
         </Section>
 
         <Section title="Where it is">
-          <figure className="rounded-2xl overflow-hidden border border-border h-44 relative bg-surface-soft">
-            <svg
-              className="absolute inset-0 w-full h-full"
-              viewBox="0 0 400 200"
-              preserveAspectRatio="none"
-              aria-hidden
-            >
-              <rect width="400" height="200" fill="#F2F4F7" />
-              <path
-                d="M 0 130 Q 80 145 160 130 Q 240 115 320 135 Q 400 155 400 200 L 0 200 Z"
-                fill="#DDE9F4"
-              />
-              {[40, 90, 150, 220, 290].map((y, i) => (
-                <line
-                  key={`h${i}`}
-                  x1="0"
-                  y1={y}
-                  x2="400"
-                  y2={y + (i % 2 ? -10 : 5)}
-                  stroke="#E6E8EB"
-                  strokeWidth="1.5"
-                />
-              ))}
-              {[60, 130, 200, 280, 350].map((x, i) => (
-                <line
-                  key={`v${i}`}
-                  x1={x}
-                  y1="0"
-                  x2={x + (i % 2 ? 10 : -5)}
-                  y2="200"
-                  stroke="#E6E8EB"
-                  strokeWidth="1.5"
-                />
-              ))}
-              {[
-                [70, 50, 40, 30],
-                [150, 30, 50, 35],
-                [230, 55, 55, 30],
-                [310, 40, 40, 40],
-                [80, 150, 55, 30],
-                [180, 160, 60, 25],
-              ].map(([x, y, w, h], i) => (
-                <rect
-                  key={`b${i}`}
-                  x={x}
-                  y={y}
-                  width={w}
-                  height={h}
-                  fill="#FFFFFF"
-                  stroke="#E6E8EB"
-                />
-              ))}
-            </svg>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-full">
-              <div className="relative">
-                <div className="w-7 h-7 rounded-full bg-warm border-[3px] border-white shadow-sheet" />
-                <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-warm rotate-45 -z-10" />
-              </div>
-            </div>
-            <div className="absolute bottom-3 left-3 bg-white rounded-lg px-2.5 py-1.5 text-[12px] font-medium text-ink-900 shadow-soft">
-              {listing.street}
-            </div>
-            <figcaption className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 text-[11px] font-medium text-ink-600">
-              Approximate area
-            </figcaption>
-          </figure>
+          <ListingMap listing={listing} />
         </Section>
 
         <Section title="Availability">
