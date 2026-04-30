@@ -21,12 +21,14 @@ export function NeighborhoodPicker({ selected, onChange }: Props) {
         return (
           <button
             key={kreis}
+            type="button"
+            aria-pressed={active}
             onClick={() => toggle(kreis)}
             className={cn(
-              'h-9 px-3 rounded-full text-sm font-medium transition-colors',
+              'h-9 px-3 rounded-full text-sm font-medium transition-colors active:scale-[0.97]',
               active
-                ? 'bg-[#0077C8] text-white'
-                : 'bg-[#F7F8FA] text-[#4A5560] hover:bg-[#E5F1FA] hover:text-[#0077C8]',
+                ? 'bg-accent text-white shadow-soft'
+                : 'bg-surface-soft text-ink-600 hover:bg-accent-soft hover:text-accent-hover',
             )}
           >
             {kreis}

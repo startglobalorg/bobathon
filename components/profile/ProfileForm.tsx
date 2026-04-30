@@ -21,9 +21,9 @@ export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile 
   const completeness = computeCompleteness(profile)
 
   return (
-    <div className="min-h-screen bg-[#F7F8FA] pb-24">
+    <div className="min-h-[100dvh] bg-surface-soft pb-32">
       <CompletenessHeader result={completeness} />
-      <div className="max-w-[480px] mx-auto px-5 py-6 space-y-4">
+      <div className="max-w-md mx-auto px-5 py-6 space-y-4">
         <div className="flex justify-end h-5">
           <SaveIndicator status={saveStatus} />
         </div>
