@@ -2,6 +2,7 @@
 node_modules/
 .pnp
 .pnp.js
+CLAUDE.md
 
 # next.js
 .next/
@@ -33,6 +34,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# worktrees
+.worktrees/
 
 # python (legacy scraper venv)
 venv/

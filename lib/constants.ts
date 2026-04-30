@@ -1,0 +1,33 @@
+export const NEIGHBORHOODS = [
+  'Kreis 1',
+  'Kreis 2',
+  'Kreis 3',
+  'Kreis 4',
+  'Kreis 5',
+  'Kreis 6',
+  'Kreis 7',
+  'Kreis 8',
+  'Kreis 9',
+  'Kreis 10',
+  'Kreis 11',
+  'Oerlikon',
+  'Wiedikon',
+  'Seefeld',
+  'Enge',
+  'Wipkingen',
+];
+
+export const NATIONALITIES = [
+  'Switzerland',
+  'Germany',
+  'Austria',
+  'Italy',
+  'France',
+  'United Kingdom',
+  'United States',
+  'Spain',
+  'Portugal',
+  'Netherlands',
+  'Sweden',
+  'Other',
+];

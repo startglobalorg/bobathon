@@ -6,6 +6,7 @@ const prisma = new PrismaClient();
 
 type ListingSeed = {
   id: string;
+  title: string;
   heroImage: string;
   gallery: string;
   sizeSqm: number;
@@ -35,7 +36,7 @@ async function main() {
   await prisma.listing.deleteMany();
 
   const raw = fs.readFileSync(
-    path.resolve(process.cwd(), "data/listings.json"),
+    path.resolve(process.cwd(), "mock-data/real-listings.json"),
     "utf-8"
   );
   const listings: ListingSeed[] = JSON.parse(raw);
