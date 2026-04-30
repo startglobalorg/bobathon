@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { getProfileId } from '@/lib/session'
 import { preferencesUpsertSchema } from '@/lib/validation/profile'
 
 export async function POST(request: Request) {
@@ -8,10 +9,11 @@ export async function POST(request: Request) {
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 })
   }
+  const profileId = await getProfileId()
   const preferences = await prisma.preferences.upsert({
-    where: { profileId: 1 },
+    where: { profileId },
     update: parsed.data,
-    create: { ...parsed.data, profileId: 1 },
+    create: { ...parsed.data, profileId },
   })
   return NextResponse.json(preferences)
 }

@@ -9,6 +9,7 @@ datasource db {
 
 model Profile {
   id                       Int      @id @default(autoincrement())
+  cookieId                 String?  @unique
   firstName                String
   lastName                 String
   birthday                 DateTime
