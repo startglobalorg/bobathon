@@ -8,6 +8,7 @@ import { BottomNav } from '@/components/nav/BottomNav'
 import { PersonalInfoSection } from './PersonalInfoSection'
 import { BioSection } from './BioSection'
 import { DocumentsSection } from './DocumentsSection'
+import { LandlordsSection } from './LandlordsSection'
 
 export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile }) {
   const [profile, setProfile] = useState<ClientProfile>(initialProfile)
@@ -39,6 +40,11 @@ export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile 
         <DocumentsSection
           profile={profile}
           onUpdate={handleUpdate}
+          onSaveStatus={setSaveStatus}
+        />
+        <LandlordsSection
+          landlords={profile.previousLandlords}
+          onUpdate={(landlords) => handleUpdate({ previousLandlords: landlords })}
           onSaveStatus={setSaveStatus}
         />
       </div>
