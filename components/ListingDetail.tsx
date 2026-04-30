@@ -4,18 +4,17 @@ import { useRouter } from 'next/navigation';
 import { useState, type ReactNode } from 'react';
 import { ArrowLeft, Bookmark, Calendar, Check, MapPin } from 'lucide-react';
 import { fmtCHF } from '@/lib/format';
-import { useAppStore } from '@/lib/store';
+import { likeListingApi } from '@/lib/api/applications-client';
 import type { Listing } from '@/lib/types';
 
 export function ListingDetail({ listing }: { listing: Listing }) {
   const router = useRouter();
-  const likeListing = useAppStore((s) => s.likeListing);
   const [photoIdx, setPhotoIdx] = useState(0);
 
   const back = () => router.back();
 
   const apply = () => {
-    likeListing(listing);
+    likeListingApi(listing.id).catch(console.error);
     router.push('/status');
   };
 

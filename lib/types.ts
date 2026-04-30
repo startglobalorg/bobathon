@@ -33,36 +33,3 @@ export type Application = {
   coverLetter?: string;
   visitDate?: string;
 };
-
-export type DocStatus = { name: string | null; uploaded: boolean };
-
-export type Landlord = {
-  name: string;
-  contact: string;
-  from: string;
-  to: string;
-};
-
-export type Preferences = {
-  maxRent: number;
-  minRooms: number;
-  minSqm: number;
-  neighborhoods: string[];
-  balcony: boolean;
-  parking: boolean;
-  petFriendly: boolean;
-  furnished: 'Any' | 'Furnished' | 'Unfurnished';
-};
-
-export type Profile = {
-  firstName: string;
-  lastName: string;
-  birthday: string;
-  nationality: string;
-  email: string;
-  phone: string;
-  bio: string;
-  documents: { cv: DocStatus; debt: DocStatus; salary: DocStatus };
-  landlords: Landlord[];
-  preferences: Preferences;
-};

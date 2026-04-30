@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MapPin } from 'lucide-react';
 import { Pill } from './Pill';
 import { fmtCHF } from '@/lib/format';
+import { useReducedMotion } from '@/lib/hooks/useReducedMotion';
 import type { Listing } from '@/lib/types';
 
 type Props = {
@@ -102,6 +103,8 @@ export function SwipeCard({
     }
   };
 
+  const reducedMotion = useReducedMotion();
+
   // Visual transforms
   const rotate = clamp(x / 25, -8, 8);
   const cardOpacity =
@@ -113,17 +116,25 @@ export function SwipeCard({
   const stackScale = 1 - stackIndex * 0.04;
 
   // Mount/exit transitions
-  const transition = exiting
-    ? 'transform 360ms cubic-bezier(0.2,0.8,0.2,1), opacity 360ms ease-out'
-    : dragRef.current
+  const transition = reducedMotion
+    ? dragRef.current
       ? 'none'
-      : 'transform 280ms cubic-bezier(0.2,0.8,0.2,1), opacity 220ms ease-out';
+      : 'opacity 150ms ease-out'
+    : exiting
+      ? 'transform 360ms cubic-bezier(0.2,0.8,0.2,1), opacity 360ms ease-out'
+      : dragRef.current
+        ? 'none'
+        : 'transform 280ms cubic-bezier(0.2,0.8,0.2,1), opacity 220ms ease-out';
 
   const baseOpacity = entered ? (exiting ? 0 : isTop ? cardOpacity : 1) : 0;
 
-  const transform = exiting
-    ? `translate3d(${x}px, ${stackOffsetY}px, 0) rotate(${exiting === 'right' ? 12 : -12}deg) scale(${stackScale})`
-    : `translate3d(${isTop ? x : 0}px, ${entered ? stackOffsetY : stackOffsetY + 16}px, 0) rotate(${isTop ? rotate : 0}deg) scale(${entered ? stackScale : stackScale - 0.04})`;
+  const transform = reducedMotion
+    ? exiting
+      ? `translate3d(0, ${stackOffsetY}px, 0) scale(${stackScale})`
+      : `translate3d(${isTop ? x : 0}px, ${entered ? stackOffsetY : stackOffsetY + 16}px, 0) scale(${entered ? stackScale : stackScale - 0.04})`
+    : exiting
+      ? `translate3d(${x}px, ${stackOffsetY}px, 0) rotate(${exiting === 'right' ? 12 : -12}deg) scale(${stackScale})`
+      : `translate3d(${isTop ? x : 0}px, ${entered ? stackOffsetY : stackOffsetY + 16}px, 0) rotate(${isTop ? rotate : 0}deg) scale(${entered ? stackScale : stackScale - 0.04})`;
 
   return (
     <div

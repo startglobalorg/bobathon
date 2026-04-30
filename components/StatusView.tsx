@@ -12,23 +12,44 @@ import {
 } from 'lucide-react';
 import { Pill } from './Pill';
 import { fmtCHF, timeSince } from '@/lib/format';
-import { LISTINGS } from '@/lib/data';
 import { useAppStore } from '@/lib/store';
+import { getApplications } from '@/lib/api/applications-client';
+import { getListings } from '@/lib/api/listings-client';
+import { updateApplicationStatus } from '@/lib/api/applications-client';
 import type { Application, ApplicationStatus, Listing } from '@/lib/types';
 
 export function StatusView() {
   const router = useRouter();
-  const applications = useAppStore((s) => s.applications);
-  const approve = useAppStore((s) => s.approveApplication);
-  const discard = useAppStore((s) => s.discardApplication);
+  const showToast = useAppStore((s) => s.showToast);
 
+  const [applications, setApplications] = useState<Application[]>([]);
+  const [listingsMap, setListingsMap] = useState<Map<string, Listing>>(new Map());
   const [reviewingId, setReviewingId] = useState<string | null>(null);
-  const reviewing = applications.find((a) => a.id === reviewingId);
-  const reviewingListing = reviewing
-    ? LISTINGS.find((l) => l.id === reviewing.listingId)
-    : null;
 
-  const byListing = (id: string) => LISTINGS.find((l) => l.id === id);
+  useEffect(() => {
+    Promise.all([getApplications(), getListings()]).then(([apps, lsts]) => {
+      setApplications(apps);
+      setListingsMap(new Map(lsts.map((l) => [l.id, l])));
+    }).catch(console.error);
+  }, []);
+
+  const reviewing = applications.find((a) => a.id === reviewingId);
+  const reviewingListing = reviewing ? listingsMap.get(reviewing.listingId) : undefined;
+
+  const byListing = (id: string) => listingsMap.get(id);
+
+  const approve = async (id: string) => {
+    await updateApplicationStatus(id, 'applied');
+    setApplications((prev) =>
+      prev.map((a) => (a.id === id ? { ...a, status: 'applied' as ApplicationStatus, updatedAt: Date.now() } : a)),
+    );
+    showToast('Sent. The owner will be in touch.', 2200);
+  };
+
+  const discard = async (id: string) => {
+    await updateApplicationStatus(id, 'rejected');
+    setApplications((prev) => prev.filter((a) => a.id !== id));
+  };
 
   const pending = applications.filter((a) => a.status === 'pending_review');
   const active = applications.filter((a) =>
@@ -142,17 +163,17 @@ export function StatusView() {
         )}
       </div>
 
-      {reviewing && reviewingListing && (
+      {reviewing && reviewingListing != null && (
         <ReviewModal
           application={reviewing}
           listing={reviewingListing}
           onClose={() => setReviewingId(null)}
           onApprove={() => {
-            approve(reviewing.id);
+            void approve(reviewing.id);
             setReviewingId(null);
           }}
           onDiscard={() => {
-            discard(reviewing.id);
+            void discard(reviewing.id);
             setReviewingId(null);
           }}
         />

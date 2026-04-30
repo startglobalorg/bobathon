@@ -1,13 +1,16 @@
 import { notFound } from 'next/navigation';
+import { prisma } from '@/lib/prisma';
+import { toUiListing } from '@/lib/listings';
 import { ListingDetail } from '@/components/ListingDetail';
-import { LISTINGS } from '@/lib/data';
 
-export function generateStaticParams() {
-  return LISTINGS.map((l) => ({ id: l.id }));
-}
+export const dynamic = 'force-dynamic';
 
-export default function ListingPage({ params }: { params: { id: string } }) {
-  const listing = LISTINGS.find((l) => l.id === params.id);
-  if (!listing) notFound();
-  return <ListingDetail listing={listing} />;
+export default async function ListingPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const dbListing = await prisma.listing.findUnique({ where: { id: params.id } });
+  if (!dbListing) notFound();
+  return <ListingDetail listing={toUiListing(dbListing)} />;
 }

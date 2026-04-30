@@ -1,27 +1,37 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Coffee, Heart, Info, SlidersHorizontal, X } from 'lucide-react';
 import { Wordmark } from './Wordmark';
 import { SwipeCard } from './SwipeCard';
 import { useAppStore } from '@/lib/store';
+import { getListings } from '@/lib/api/listings-client';
+import { likeListingApi } from '@/lib/api/applications-client';
+import type { Listing } from '@/lib/types';
 
 export function SwipeView() {
   const router = useRouter();
-  const deck = useAppStore((s) => s.deck);
-  const likeListing = useAppStore((s) => s.likeListing);
-  const resetDeck = useAppStore((s) => s.resetDeck);
+  const showToast = useAppStore((s) => s.showToast);
 
+  const [listings, setListings] = useState<Listing[]>([]);
   const [index, setIndex] = useState(0);
   const [programmaticDir, setProgrammaticDir] = useState<'left' | 'right' | null>(null);
 
-  const remaining = deck.slice(index, index + 3);
+  useEffect(() => {
+    getListings().then(setListings).catch(console.error);
+  }, []);
+
+  const remaining = listings.slice(index, index + 3);
   const top = remaining[0];
 
-  const advance = (dir: 'left' | 'right') => {
+  const advance = async (dir: 'left' | 'right') => {
     if (!top) return;
-    if (dir === 'right') likeListing(top);
+    if (dir === 'right') {
+      showToast('Liked. Drafting your application…', 1800);
+      setTimeout(() => showToast('Application drafted — review in Status', 2400), 1900);
+      likeListingApi(top.id).catch(console.error);
+    }
     setIndex((i) => i + 1);
     setProgrammaticDir(null);
   };
@@ -35,7 +45,7 @@ export function SwipeView() {
 
   const handleReset = () => {
     setIndex(0);
-    resetDeck();
+    getListings().then(setListings).catch(console.error);
   };
 
   return (
@@ -99,7 +109,7 @@ export function SwipeView() {
             </div>
 
             <p className="text-center text-[12px] text-ink-400 mt-4 font-medium">
-              {deck.length - index} left in your deck
+              {listings.length - index} left in your deck
             </p>
           </>
         ) : (

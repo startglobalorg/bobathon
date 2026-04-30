@@ -40,6 +40,15 @@ export const landlordUpdateSchema = z.object({
   periodEnd: z.coerce.date().optional(),
 })
 
+export const applicationStatusSchema = z.enum([
+  'pending_review',
+  'applied',
+  'visit_requested',
+  'visit_booked',
+  'accepted',
+  'rejected',
+])
+
 export type ProfileUpdate = z.infer<typeof profileUpdateSchema>
 export type PreferencesUpsert = z.infer<typeof preferencesUpsertSchema>
 export type LandlordCreate = z.infer<typeof landlordCreateSchema>
