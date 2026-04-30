@@ -1,0 +1,31 @@
+'use client'
+import { useState, useCallback } from 'react'
+import type { ClientProfile } from '@/lib/api/profile-client'
+import { computeCompleteness } from '@/lib/completeness'
+import { CompletenessHeader } from './CompletenessHeader'
+import { SaveIndicator, type SaveStatus } from './SaveIndicator'
+import { BottomNav } from '@/components/nav/BottomNav'
+
+export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile }) {
+  const [profile, setProfile] = useState<ClientProfile>(initialProfile)
+  const [saveStatus, setSaveStatus] = useState<SaveStatus>('idle')
+
+  const handleUpdate = useCallback((updated: Partial<ClientProfile>) => {
+    setProfile((prev) => ({ ...prev, ...updated }))
+  }, [])
+
+  const completeness = computeCompleteness(profile)
+
+  return (
+    <div className="min-h-screen bg-[#F7F8FA] pb-24">
+      <CompletenessHeader result={completeness} />
+      <div className="max-w-[480px] mx-auto px-5 py-6 space-y-4">
+        <div className="flex justify-end h-5">
+          <SaveIndicator status={saveStatus} />
+        </div>
+        {/* Sections added in tasks 10–14 */}
+      </div>
+      <BottomNav />
+    </div>
+  )
+}
