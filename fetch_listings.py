@@ -141,8 +141,6 @@ async def fetch_all_listings() -> list[dict]:
 
             await asyncio.sleep(0.5)
 
-        await browser.close()
-
     return listings
 
 
