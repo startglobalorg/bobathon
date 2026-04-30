@@ -1,0 +1,3012 @@
+[
+  {
+    "id": "4496743109",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8047",
+      "street": "Schaffhauserstrasse 115",
+      "geoCoordinates": {
+        "latitude": 47.369841,
+        "longitude": 8.495101
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.5,
+      "livingSpace": 79,
+      "yearBuilt": 1944,
+      "floor": 1,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 3294,
+        "net": 2971,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Helle 3.5-Zimmer-Wohnung in Albisrieden",
+          "description": "Hellee 3.5-Zimmer-Wohnung im 1. Obergeschoss in Albisrieden. Mit Balkon und direktem Lichteinfall. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 1944 erbaut und bietet 79 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4100140141",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8051",
+      "street": "Langstrasse 167",
+      "geoCoordinates": {
+        "latitude": 47.408996,
+        "longitude": 8.571016
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.0,
+      "livingSpace": 74,
+      "yearBuilt": 1990,
+      "floor": 0,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 3095,
+        "net": 2807,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "3-Zimmer-Apartment – Moderne Lage in Schwamendingen",
+          "description": "Willkommen in dieser moderneen Wohnung mit 3 Zimmern und 74 m² im Herzen von Schwamendingen. Das Objekt befindet sich im Erd. Stock mit Balkon und wurde 1990 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600493505873-cddd69453072?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1663756915301-2ba688e078cf?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1610527003928-47afd5f470c6?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4994841203",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8003",
+      "street": "Limmatquai 98",
+      "geoCoordinates": {
+        "latitude": 47.367013,
+        "longitude": 8.522343
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.0,
+      "livingSpace": 75,
+      "yearBuilt": 1971,
+      "floor": 0,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2370,
+        "net": 2100,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 3-Zimmer-Wohnung nahe Wiedikon",
+          "description": "Diese 75 m² grosse 3-Zimmer-Wohnung in Wiedikon überzeugt durch ihren renovierteen Charakter. Mit Balkon und direktem Lichteinfall. Baujahr 1971, Erd. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1643949719317-4342d8d4031e?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4233754555",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8004",
+      "street": "Neptunstrasse 184",
+      "geoCoordinates": {
+        "latitude": 47.37692,
+        "longitude": 8.528139
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.0,
+      "livingSpace": 57,
+      "yearBuilt": 2020,
+      "floor": 4,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 1792,
+        "net": 1589,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gemütliche Wohnung in Langstrasse – 2 Zimmer",
+          "description": "Im 4. Stock dieses 2020 erbauten Hauses in Langstrasse liegt diese gemütlichee 2-Zimmer-Wohnung. 57 m² Wohnfläche mit Balkon. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1661963930456-4fb8ced9324e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1675537843200-78c1a0ea1736?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4570292350",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8008",
+      "street": "Langstrasse 150",
+      "geoCoordinates": {
+        "latitude": 47.355861,
+        "longitude": 8.560516
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 1.5,
+      "livingSpace": 30,
+      "yearBuilt": 1960,
+      "floor": 0,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 1693,
+        "net": 1523,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 1.5-Zi.-Wohnung, Seefelder Lage",
+          "description": "Ruhigee 1.5-Zimmer-Wohnung mit 30 m² in Seefeld, Baujahr 1960. Gelegen im Erd. Stock mit Balkon. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1606074280798-2dabb75ce10c?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1612419299101-6c294dc2901d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306541-85e77116aed3?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4128727266",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8006",
+      "street": "Forchstrasse 18",
+      "geoCoordinates": {
+        "latitude": 47.385051,
+        "longitude": 8.541411
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 5.0,
+      "livingSpace": 122,
+      "yearBuilt": 1943,
+      "floor": 0,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 4432,
+        "net": 4026,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Charmante 5-Zimmer-Wohnung in Unterstrass",
+          "description": "Charmantee 5-Zimmer-Wohnung im Erd. Obergeschoss in Unterstrass. Mit Balkon und direktem Lichteinfall. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 1943 erbaut und bietet 122 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1630699144641-72fa7a6b8aa1?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4279995032",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8001",
+      "street": "Neptunstrasse 150",
+      "geoCoordinates": {
+        "latitude": 47.374391,
+        "longitude": 8.539898
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.5,
+      "livingSpace": 78,
+      "yearBuilt": 1930,
+      "floor": 3,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 3104,
+        "net": 2772,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "3.5-Zimmer-Apartment – Grosszügige Lage in Altstadt",
+          "description": "Willkommen in dieser grosszügigeen Wohnung mit 3.5 Zimmern und 78 m² im Herzen von Altstadt. Das Objekt befindet sich im 3. Stock mit Balkon und wurde 1930 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1643949719317-4342d8d4031e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1576698483491-8c43f0862543?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600488999585-e4364713b90a?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4807308348",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8001",
+      "street": "Neptunstrasse 166",
+      "geoCoordinates": {
+        "latitude": 47.3728,
+        "longitude": 8.539897
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.0,
+      "livingSpace": 46,
+      "yearBuilt": 1970,
+      "floor": 1,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2185,
+        "net": 1964,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 2-Zimmer-Wohnung nahe Altstadt",
+          "description": "Diese 46 m² grosse 2-Zimmer-Wohnung in Altstadt überzeugt durch ihren stilvolleen Charakter. Baujahr 1970, 1. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1674676471963-4c4643beb12d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4374745382",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8005",
+      "street": "Schaffhauserstrasse 55",
+      "geoCoordinates": {
+        "latitude": 47.388035,
+        "longitude": 8.519795
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.5,
+      "livingSpace": 103,
+      "yearBuilt": 1932,
+      "floor": 0,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2619,
+        "net": 2327,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Sonnige Wohnung in Industriequartier – 3.5 Zimmer",
+          "description": "Im Erd. Stock dieses 1932 erbauten Hauses in Industriequartier liegt diese sonnigee 3.5-Zimmer-Wohnung. 103 m² Wohnfläche mit Balkon. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306547-c1d7c6c85ffa?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600493505873-cddd69453072?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1663756915301-2ba688e078cf?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4567945747",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8001",
+      "street": "Rämistrasse 157",
+      "geoCoordinates": {
+        "latitude": 47.376903,
+        "longitude": 8.542843
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.5,
+      "livingSpace": 54,
+      "yearBuilt": 1989,
+      "floor": 5,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2050,
+        "net": 1814,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 2.5-Zi.-Wohnung, Altstadter Lage",
+          "description": "Zentralee 2.5-Zimmer-Wohnung mit 54 m² in Altstadt, Baujahr 1989. Gelegen im 5. Stock mit Balkon. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4594019365",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8006",
+      "street": "Universitätstrasse 68",
+      "geoCoordinates": {
+        "latitude": 47.381693,
+        "longitude": 8.540642
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.0,
+      "livingSpace": 99,
+      "yearBuilt": 2004,
+      "floor": 0,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 4367,
+        "net": 3942,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Helle 4-Zimmer-Wohnung in Unterstrass",
+          "description": "Hellee 4-Zimmer-Wohnung im Erd. Obergeschoss in Unterstrass. Mit Balkon und direktem Lichteinfall. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 2004 erbaut und bietet 99 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1661963930456-4fb8ced9324e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1675537843200-78c1a0ea1736?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4269639388",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8003",
+      "street": "Neptunstrasse 163",
+      "geoCoordinates": {
+        "latitude": 47.372117,
+        "longitude": 8.523032
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.0,
+      "livingSpace": 68,
+      "yearBuilt": 1963,
+      "floor": 1,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 2478,
+        "net": 2184,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "3-Zimmer-Apartment – Moderne Lage in Wiedikon",
+          "description": "Willkommen in dieser moderneen Wohnung mit 3 Zimmern und 68 m² im Herzen von Wiedikon. Das Objekt befindet sich im 1. Stock mit Balkon und wurde 1963 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1606074280798-2dabb75ce10c?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1612419299101-6c294dc2901d?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4173497327",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8051",
+      "street": "Sihlquai 198",
+      "geoCoordinates": {
+        "latitude": 47.403785,
+        "longitude": 8.571879
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.5,
+      "livingSpace": 66,
+      "yearBuilt": 1925,
+      "floor": 0,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 1894,
+        "net": 1696,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 2.5-Zimmer-Wohnung nahe Schwamendingen",
+          "description": "Diese 66 m² grosse 2.5-Zimmer-Wohnung in Schwamendingen überzeugt durch ihren renovierteen Charakter. Baujahr 1925, Erd. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1610527003928-47afd5f470c6?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1630699144641-72fa7a6b8aa1?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4896139578",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8038",
+      "street": "Seefeldstrasse 177",
+      "geoCoordinates": {
+        "latitude": 47.343424,
+        "longitude": 8.527274
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 1.5,
+      "livingSpace": 34,
+      "yearBuilt": 1921,
+      "floor": 0,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 1552,
+        "net": 1384,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gemütliche Wohnung in Wollishofen – 1.5 Zimmer",
+          "description": "Im Erd. Stock dieses 1921 erbauten Hauses in Wollishofen liegt diese gemütlichee 1.5-Zimmer-Wohnung. 34 m² Wohnfläche. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1643949719317-4342d8d4031e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1576698483491-8c43f0862543?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600488999585-e4364713b90a?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4267930513",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8005",
+      "street": "Hardturmstrasse 11",
+      "geoCoordinates": {
+        "latitude": 47.390394,
+        "longitude": 8.52026
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.5,
+      "livingSpace": 117,
+      "yearBuilt": 1925,
+      "floor": 2,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 4692,
+        "net": 4186,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 4.5-Zi.-Wohnung, Industriequartierer Lage",
+          "description": "Ruhigee 4.5-Zimmer-Wohnung mit 117 m² in Industriequartier, Baujahr 1925. Gelegen im 2. Stock. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1674676471963-4c4643beb12d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4174484941",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8047",
+      "street": "Albisstrasse 40",
+      "geoCoordinates": {
+        "latitude": 47.374555,
+        "longitude": 8.49542
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.5,
+      "livingSpace": 122,
+      "yearBuilt": 1972,
+      "floor": 4,
+      "hasBalcony": false,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 3710,
+        "net": 3280,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Charmante 4.5-Zimmer-Wohnung in Albisrieden",
+          "description": "Charmantee 4.5-Zimmer-Wohnung im 4. Obergeschoss in Albisrieden. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 1972 erbaut und bietet 122 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306541-85e77116aed3?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306547-c1d7c6c85ffa?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600493505873-cddd69453072?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4286480450",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8049",
+      "street": "Friesenbergstrasse 172",
+      "geoCoordinates": {
+        "latitude": 47.399184,
+        "longitude": 8.500864
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.0,
+      "livingSpace": 54,
+      "yearBuilt": 1962,
+      "floor": 6,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 1922,
+        "net": 1674,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "2-Zimmer-Apartment – Grosszügige Lage in Höngg",
+          "description": "Willkommen in dieser grosszügigeen Wohnung mit 2 Zimmern und 54 m² im Herzen von Höngg. Das Objekt befindet sich im 6. Stock mit Balkon und wurde 1962 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4935575986",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8005",
+      "street": "Bellerivestrasse 118",
+      "geoCoordinates": {
+        "latitude": 47.387098,
+        "longitude": 8.523923
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.5,
+      "livingSpace": 78,
+      "yearBuilt": 1980,
+      "floor": 1,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2821,
+        "net": 2497,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 3.5-Zimmer-Wohnung nahe Industriequartier",
+          "description": "Diese 78 m² grosse 3.5-Zimmer-Wohnung in Industriequartier überzeugt durch ihren stilvolleen Charakter. Baujahr 1980, 1. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600488999585-e4364713b90a?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1661963930456-4fb8ced9324e?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4429151399",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8038",
+      "street": "Seefeldstrasse 198",
+      "geoCoordinates": {
+        "latitude": 47.339675,
+        "longitude": 8.527849
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.0,
+      "livingSpace": 95,
+      "yearBuilt": 1962,
+      "floor": 2,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 3456,
+        "net": 3010,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Sonnige Wohnung in Wollishofen – 4 Zimmer",
+          "description": "Im 2. Stock dieses 1962 erbauten Hauses in Wollishofen liegt diese sonnigee 4-Zimmer-Wohnung. 95 m² Wohnfläche. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1606074280798-2dabb75ce10c?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1612419299101-6c294dc2901d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306541-85e77116aed3?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4371178705",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8050",
+      "street": "Badenerstrasse 68",
+      "geoCoordinates": {
+        "latitude": 47.40723,
+        "longitude": 8.544579
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 1.5,
+      "livingSpace": 30,
+      "yearBuilt": 1953,
+      "floor": 1,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 1649,
+        "net": 1456,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 1.5-Zi.-Wohnung, Oerlikoner Lage",
+          "description": "Zentralee 1.5-Zimmer-Wohnung mit 30 m² in Oerlikon, Baujahr 1953. Gelegen im 1. Stock mit Balkon. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1663756915301-2ba688e078cf?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1610527003928-47afd5f470c6?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1630699144641-72fa7a6b8aa1?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4468213197",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8044",
+      "street": "Stauffacherstrasse 148",
+      "geoCoordinates": {
+        "latitude": 47.37814,
+        "longitude": 8.559266
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.5,
+      "livingSpace": 124,
+      "yearBuilt": 1985,
+      "floor": 0,
+      "hasBalcony": false,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 5110,
+        "net": 4510,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Helle 4.5-Zimmer-Wohnung in Fluntern",
+          "description": "Hellee 4.5-Zimmer-Wohnung im Erd. Obergeschoss in Fluntern. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 1985 erbaut und bietet 124 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1643949719317-4342d8d4031e?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4713219781",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8008",
+      "street": "Albisstrasse 172",
+      "geoCoordinates": {
+        "latitude": 47.354182,
+        "longitude": 8.557588
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.0,
+      "livingSpace": 76,
+      "yearBuilt": 2012,
+      "floor": 5,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 2732,
+        "net": 2478,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "3-Zimmer-Apartment – Moderne Lage in Seefeld",
+          "description": "Willkommen in dieser moderneen Wohnung mit 3 Zimmern und 76 m² im Herzen von Seefeld. Das Objekt befindet sich im 5. Stock mit Balkon und wurde 2012 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1675537843200-78c1a0ea1736?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1674676471963-4c4643beb12d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4748621833",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8044",
+      "street": "Zollikerstrasse 80",
+      "geoCoordinates": {
+        "latitude": 47.381001,
+        "longitude": 8.560957
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.0,
+      "livingSpace": 116,
+      "yearBuilt": 2012,
+      "floor": 2,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 4276,
+        "net": 3774,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 4-Zimmer-Wohnung nahe Fluntern",
+          "description": "Diese 116 m² grosse 4-Zimmer-Wohnung in Fluntern überzeugt durch ihren renovierteen Charakter. Mit Balkon und direktem Lichteinfall. Baujahr 2012, 2. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1612419299101-6c294dc2901d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306541-85e77116aed3?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306547-c1d7c6c85ffa?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600493505873-cddd69453072?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4588343096",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8044",
+      "street": "Albisstrasse 45",
+      "geoCoordinates": {
+        "latitude": 47.380693,
+        "longitude": 8.560806
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 5.0,
+      "livingSpace": 137,
+      "yearBuilt": 1968,
+      "floor": 5,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 6470,
+        "net": 5662,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gemütliche Wohnung in Fluntern – 5 Zimmer",
+          "description": "Im 5. Stock dieses 1968 erbauten Hauses in Fluntern liegt diese gemütlichee 5-Zimmer-Wohnung. 137 m² Wohnfläche mit Balkon. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4229460134",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8006",
+      "street": "Militärstrasse 83",
+      "geoCoordinates": {
+        "latitude": 47.38379,
+        "longitude": 8.542653
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.5,
+      "livingSpace": 117,
+      "yearBuilt": 1994,
+      "floor": 4,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 4122,
+        "net": 3633,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 4.5-Zi.-Wohnung, Unterstrasser Lage",
+          "description": "Ruhigee 4.5-Zimmer-Wohnung mit 117 m² in Unterstrass, Baujahr 1994. Gelegen im 4. Stock mit Balkon. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1576698483491-8c43f0862543?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600488999585-e4364713b90a?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1661963930456-4fb8ced9324e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1675537843200-78c1a0ea1736?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4664926227",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8049",
+      "street": "Neptunstrasse 22",
+      "geoCoordinates": {
+        "latitude": 47.395703,
+        "longitude": 8.499983
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.5,
+      "livingSpace": 102,
+      "yearBuilt": 2014,
+      "floor": 1,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 3569,
+        "net": 3218,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Charmante 3.5-Zimmer-Wohnung in Höngg",
+          "description": "Charmantee 3.5-Zimmer-Wohnung im 1. Obergeschoss in Höngg. Mit Balkon und direktem Lichteinfall. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 2014 erbaut und bietet 102 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1606074280798-2dabb75ce10c?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4510173760",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8003",
+      "street": "Hönggerstrasse 51",
+      "geoCoordinates": {
+        "latitude": 47.367884,
+        "longitude": 8.520277
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.5,
+      "livingSpace": 97,
+      "yearBuilt": 2006,
+      "floor": 2,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2791,
+        "net": 2520,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "3.5-Zimmer-Apartment – Grosszügige Lage in Wiedikon",
+          "description": "Willkommen in dieser grosszügigeen Wohnung mit 3.5 Zimmern und 97 m² im Herzen von Wiedikon. Das Objekt befindet sich im 2. Stock und wurde 2006 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600493505873-cddd69453072?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1663756915301-2ba688e078cf?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1610527003928-47afd5f470c6?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1630699144641-72fa7a6b8aa1?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4261976301",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8006",
+      "street": "Bellerivestrasse 184",
+      "geoCoordinates": {
+        "latitude": 47.385178,
+        "longitude": 8.542966
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.0,
+      "livingSpace": 74,
+      "yearBuilt": 2000,
+      "floor": 4,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 3070,
+        "net": 2765,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 3-Zimmer-Wohnung nahe Unterstrass",
+          "description": "Diese 74 m² grosse 3-Zimmer-Wohnung in Unterstrass überzeugt durch ihren stilvolleen Charakter. Baujahr 2000, 4. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4747229579",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8008",
+      "street": "Zürichbergstrasse 109",
+      "geoCoordinates": {
+        "latitude": 47.354313,
+        "longitude": 8.559825
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.0,
+      "livingSpace": 84,
+      "yearBuilt": 2018,
+      "floor": 0,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 2871,
+        "net": 2577,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Sonnige Wohnung in Seefeld – 3 Zimmer",
+          "description": "Im Erd. Stock dieses 2018 erbauten Hauses in Seefeld liegt diese sonnigee 3-Zimmer-Wohnung. 84 m² Wohnfläche mit Balkon. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1661963930456-4fb8ced9324e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1675537843200-78c1a0ea1736?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1674676471963-4c4643beb12d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4639362057",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8044",
+      "street": "Universitätstrasse 119",
+      "geoCoordinates": {
+        "latitude": 47.381005,
+        "longitude": 8.564927
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.5,
+      "livingSpace": 111,
+      "yearBuilt": 1935,
+      "floor": 3,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 4451,
+        "net": 3881,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 4.5-Zi.-Wohnung, Flunterner Lage",
+          "description": "Zentralee 4.5-Zimmer-Wohnung mit 111 m² in Fluntern, Baujahr 1935. Gelegen im 3. Stock mit Balkon. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1606074280798-2dabb75ce10c?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1612419299101-6c294dc2901d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306541-85e77116aed3?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306547-c1d7c6c85ffa?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4509677794",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8004",
+      "street": "Schaffhauserstrasse 115",
+      "geoCoordinates": {
+        "latitude": 47.379383,
+        "longitude": 8.531462
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 5.0,
+      "livingSpace": 149,
+      "yearBuilt": 1984,
+      "floor": 3,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 6012,
+        "net": 5378,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Helle 5-Zimmer-Wohnung in Langstrasse",
+          "description": "Hellee 5-Zimmer-Wohnung im 3. Obergeschoss in Langstrasse. Mit Balkon und direktem Lichteinfall. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 1984 erbaut und bietet 149 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1630699144641-72fa7a6b8aa1?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4472309605",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8049",
+      "street": "Zürichbergstrasse 134",
+      "geoCoordinates": {
+        "latitude": 47.396908,
+        "longitude": 8.497435
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.0,
+      "livingSpace": 116,
+      "yearBuilt": 1955,
+      "floor": 6,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 3530,
+        "net": 3177,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "4-Zimmer-Apartment – Moderne Lage in Höngg",
+          "description": "Willkommen in dieser moderneen Wohnung mit 4 Zimmern und 116 m² im Herzen von Höngg. Das Objekt befindet sich im 6. Stock und wurde 1955 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1643949719317-4342d8d4031e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1576698483491-8c43f0862543?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600488999585-e4364713b90a?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4164073400",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8004",
+      "street": "Seefeldstrasse 36",
+      "geoCoordinates": {
+        "latitude": 47.374905,
+        "longitude": 8.529298
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.0,
+      "livingSpace": 98,
+      "yearBuilt": 1960,
+      "floor": 4,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 4461,
+        "net": 3932,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 4-Zimmer-Wohnung nahe Langstrasse",
+          "description": "Diese 98 m² grosse 4-Zimmer-Wohnung in Langstrasse überzeugt durch ihren renovierteen Charakter. Mit Balkon und direktem Lichteinfall. Baujahr 1960, 4. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1674676471963-4c4643beb12d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1606074280798-2dabb75ce10c?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4971562912",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8047",
+      "street": "Friesenbergstrasse 16",
+      "geoCoordinates": {
+        "latitude": 47.370241,
+        "longitude": 8.496521
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 5.0,
+      "livingSpace": 136,
+      "yearBuilt": 1989,
+      "floor": 3,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 5076,
+        "net": 4429,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gemütliche Wohnung in Albisrieden – 5 Zimmer",
+          "description": "Im 3. Stock dieses 1989 erbauten Hauses in Albisrieden liegt diese gemütlichee 5-Zimmer-Wohnung. 136 m² Wohnfläche. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306547-c1d7c6c85ffa?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600493505873-cddd69453072?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1663756915301-2ba688e078cf?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1610527003928-47afd5f470c6?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1630699144641-72fa7a6b8aa1?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4418744974",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8049",
+      "street": "Weinbergstrasse 2",
+      "geoCoordinates": {
+        "latitude": 47.399656,
+        "longitude": 8.497792
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.5,
+      "livingSpace": 67,
+      "yearBuilt": 1993,
+      "floor": 3,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 2512,
+        "net": 2187,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 2.5-Zi.-Wohnung, Höngger Lage",
+          "description": "Ruhigee 2.5-Zimmer-Wohnung mit 67 m² in Höngg, Baujahr 1993. Gelegen im 3. Stock. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4417532243",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8047",
+      "street": "Weinbergstrasse 57",
+      "geoCoordinates": {
+        "latitude": 47.370638,
+        "longitude": 8.496914
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 5.0,
+      "livingSpace": 142,
+      "yearBuilt": 1997,
+      "floor": 1,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 6404,
+        "net": 5763,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Charmante 5-Zimmer-Wohnung in Albisrieden",
+          "description": "Charmantee 5-Zimmer-Wohnung im 1. Obergeschoss in Albisrieden. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 1997 erbaut und bietet 142 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1661963930456-4fb8ced9324e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1675537843200-78c1a0ea1736?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4973807454",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8005",
+      "street": "Gloriastrasse 33",
+      "geoCoordinates": {
+        "latitude": 47.390884,
+        "longitude": 8.522205
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 5.0,
+      "livingSpace": 136,
+      "yearBuilt": 1941,
+      "floor": 6,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 6939,
+        "net": 6225,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "5-Zimmer-Apartment – Grosszügige Lage in Industriequartier",
+          "description": "Willkommen in dieser grosszügigeen Wohnung mit 5 Zimmern und 136 m² im Herzen von Industriequartier. Das Objekt befindet sich im 6. Stock mit Balkon und wurde 1941 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1606074280798-2dabb75ce10c?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1612419299101-6c294dc2901d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306541-85e77116aed3?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4227268503",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8001",
+      "street": "Gloriastrasse 47",
+      "geoCoordinates": {
+        "latitude": 47.371302,
+        "longitude": 8.540275
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 1.5,
+      "livingSpace": 31,
+      "yearBuilt": 1974,
+      "floor": 1,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 1677,
+        "net": 1503,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 1.5-Zimmer-Wohnung nahe Altstadt",
+          "description": "Diese 31 m² grosse 1.5-Zimmer-Wohnung in Altstadt überzeugt durch ihren stilvolleen Charakter. Mit Balkon und direktem Lichteinfall. Baujahr 1974, 1. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1610527003928-47afd5f470c6?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1630699144641-72fa7a6b8aa1?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4804258674",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8001",
+      "street": "Friesenbergstrasse 65",
+      "geoCoordinates": {
+        "latitude": 47.376009,
+        "longitude": 8.540822
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 3.5,
+      "livingSpace": 100,
+      "yearBuilt": 1955,
+      "floor": 6,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 3269,
+        "net": 2888,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Sonnige Wohnung in Altstadt – 3.5 Zimmer",
+          "description": "Im 6. Stock dieses 1955 erbauten Hauses in Altstadt liegt diese sonnigee 3.5-Zimmer-Wohnung. 100 m² Wohnfläche mit Balkon. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1643949719317-4342d8d4031e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1576698483491-8c43f0862543?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600488999585-e4364713b90a?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4265518424",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8003",
+      "street": "Zürichbergstrasse 167",
+      "geoCoordinates": {
+        "latitude": 47.367242,
+        "longitude": 8.520186
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.0,
+      "livingSpace": 100,
+      "yearBuilt": 2003,
+      "floor": 0,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 3106,
+        "net": 2826,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 4-Zi.-Wohnung, Wiedikoner Lage",
+          "description": "Zentralee 4-Zimmer-Wohnung mit 100 m² in Wiedikon, Baujahr 2003. Gelegen im Erd. Stock mit Balkon. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1674676471963-4c4643beb12d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4275139575",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8050",
+      "street": "Wiedikonikerstrasse 145",
+      "geoCoordinates": {
+        "latitude": 47.412687,
+        "longitude": 8.54379
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 1.5,
+      "livingSpace": 32,
+      "yearBuilt": 1980,
+      "floor": 5,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 1120,
+        "net": 1002,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Helle 1.5-Zimmer-Wohnung in Oerlikon",
+          "description": "Hellee 1.5-Zimmer-Wohnung im 5. Obergeschoss in Oerlikon. Mit Balkon und direktem Lichteinfall. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 1980 erbaut und bietet 32 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306541-85e77116aed3?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306547-c1d7c6c85ffa?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600493505873-cddd69453072?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1663756915301-2ba688e078cf?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4027571992",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8038",
+      "street": "Zürichbergstrasse 42",
+      "geoCoordinates": {
+        "latitude": 47.343788,
+        "longitude": 8.524649
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.0,
+      "livingSpace": 120,
+      "yearBuilt": 2011,
+      "floor": 0,
+      "hasBalcony": false,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 3343,
+        "net": 2989,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "4-Zimmer-Apartment – Moderne Lage in Wollishofen",
+          "description": "Willkommen in dieser moderneen Wohnung mit 4 Zimmern und 120 m² im Herzen von Wollishofen. Das Objekt befindet sich im Erd. Stock und wurde 2011 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4260757540",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8051",
+      "street": "Bellerivestrasse 20",
+      "geoCoordinates": {
+        "latitude": 47.406553,
+        "longitude": 8.570983
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.0,
+      "livingSpace": 57,
+      "yearBuilt": 1970,
+      "floor": 5,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2089,
+        "net": 1874,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 2-Zimmer-Wohnung nahe Schwamendingen",
+          "description": "Diese 57 m² grosse 2-Zimmer-Wohnung in Schwamendingen überzeugt durch ihren renovierteen Charakter. Mit Balkon und direktem Lichteinfall. Baujahr 1970, 5. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600488999585-e4364713b90a?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1661963930456-4fb8ced9324e?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4397897455",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8051",
+      "street": "Badenerstrasse 11",
+      "geoCoordinates": {
+        "latitude": 47.405083,
+        "longitude": 8.56857
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.0,
+      "livingSpace": 52,
+      "yearBuilt": 1935,
+      "floor": 6,
+      "hasBalcony": false,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 1808,
+        "net": 1634,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gemütliche Wohnung in Schwamendingen – 2 Zimmer",
+          "description": "Im 6. Stock dieses 1935 erbauten Hauses in Schwamendingen liegt diese gemütlichee 2-Zimmer-Wohnung. 52 m² Wohnfläche. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1606074280798-2dabb75ce10c?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4957321378",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8008",
+      "street": "Weinbergstrasse 28",
+      "geoCoordinates": {
+        "latitude": 47.355601,
+        "longitude": 8.557173
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.5,
+      "livingSpace": 51,
+      "yearBuilt": 1973,
+      "floor": 6,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2318,
+        "net": 2077,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 2.5-Zi.-Wohnung, Seefelder Lage",
+          "description": "Ruhigee 2.5-Zimmer-Wohnung mit 51 m² in Seefeld, Baujahr 1973. Gelegen im 6. Stock. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1663756915301-2ba688e078cf?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1610527003928-47afd5f470c6?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1630699144641-72fa7a6b8aa1?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4519151495",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8050",
+      "street": "Birmensdorferstrasse 158",
+      "geoCoordinates": {
+        "latitude": 47.411849,
+        "longitude": 8.544229
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.5,
+      "livingSpace": 54,
+      "yearBuilt": 1986,
+      "floor": 5,
+      "hasBalcony": false,
+      "hasParking": true,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2524,
+        "net": 2211,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Charmante 2.5-Zimmer-Wohnung in Oerlikon",
+          "description": "Charmantee 2.5-Zimmer-Wohnung im 5. Obergeschoss in Oerlikon. Beste Anbindung an den öffentlichen Verkehr. Die Liegenschaft wurde 1986 erbaut und bietet 54 m² Wohnfläche."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1562438668-bcf0ca6578f0?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1643949719317-4342d8d4031e?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1576698483491-8c43f0862543?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4805817775",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8004",
+      "street": "Hönggerstrasse 23",
+      "geoCoordinates": {
+        "latitude": 47.375674,
+        "longitude": 8.529705
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.5,
+      "livingSpace": 62,
+      "yearBuilt": 1961,
+      "floor": 6,
+      "hasBalcony": true,
+      "hasParking": false,
+      "hasElevator": true
+    },
+    "prices": {
+      "rent": {
+        "gross": 2246,
+        "net": 2028,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "2.5-Zimmer-Apartment – Grosszügige Lage in Langstrasse",
+          "description": "Willkommen in dieser grosszügigeen Wohnung mit 2.5 Zimmern und 62 m² im Herzen von Langstrasse. Das Objekt befindet sich im 6. Stock mit Balkon und wurde 1961 erstellt. Tram und Bus sind in wenigen Gehminuten erreichbar."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1675537843200-78c1a0ea1736?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1663126298656-33616be83c32?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1674676471963-4c4643beb12d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1613575831056-0acd5da8f085?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4277403790",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8038",
+      "street": "Sihlquai 47",
+      "geoCoordinates": {
+        "latitude": 47.340925,
+        "longitude": 8.526129
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 1.5,
+      "livingSpace": 34,
+      "yearBuilt": 1923,
+      "floor": 3,
+      "hasBalcony": false,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 1683,
+        "net": 1505,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Schöne 1.5-Zimmer-Wohnung nahe Wollishofen",
+          "description": "Diese 34 m² grosse 1.5-Zimmer-Wohnung in Wollishofen überzeugt durch ihren stilvolleen Charakter. Baujahr 1923, 3. Etage. Hervorragende Erschliessung durch ÖV – S-Bahn und Busse direkt in der Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1612419299101-6c294dc2901d?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306541-85e77116aed3?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1629042306547-c1d7c6c85ffa?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600493505873-cddd69453072?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4773174285",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8004",
+      "street": "Bahnhofstrasse 133",
+      "geoCoordinates": {
+        "latitude": 47.379688,
+        "longitude": 8.527514
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 2.0,
+      "livingSpace": 53,
+      "yearBuilt": 1955,
+      "floor": 4,
+      "hasBalcony": false,
+      "hasParking": false,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 1786,
+        "net": 1617,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Sonnige Wohnung in Langstrasse – 2 Zimmer",
+          "description": "Im 4. Stock dieses 1955 erbauten Hauses in Langstrasse liegt diese sonnigee 2-Zimmer-Wohnung. 53 m² Wohnfläche. Einkaufsmöglichkeiten, Schulen und ÖV-Anbindung befinden sich in unmittelbarer Nähe."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1649068533606-0e7ef6786214?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676321046449-3acb3cd47e81?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://plus.unsplash.com/premium_photo-1676823553207-758c7a66e9bb?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4315933049",
+    "categories": [
+      "APARTMENT",
+      "FLAT"
+    ],
+    "offerType": "RENT",
+    "address": {
+      "locality": "Zürich",
+      "postalCode": "8050",
+      "street": "Klosbachstrasse 126",
+      "geoCoordinates": {
+        "latitude": 47.409689,
+        "longitude": 8.541103
+      }
+    },
+    "characteristics": {
+      "numberOfRooms": 4.5,
+      "livingSpace": 111,
+      "yearBuilt": 1980,
+      "floor": 5,
+      "hasBalcony": true,
+      "hasParking": true,
+      "hasElevator": false
+    },
+    "prices": {
+      "rent": {
+        "gross": 4500,
+        "net": 4015,
+        "interval": "MONTH"
+      },
+      "currency": "CHF"
+    },
+    "localization": {
+      "primary": "de",
+      "de": {
+        "text": {
+          "title": "Gepflegte 4.5-Zi.-Wohnung, Oerlikoner Lage",
+          "description": "Zentralee 4.5-Zimmer-Wohnung mit 111 m² in Oerlikon, Baujahr 1980. Gelegen im 5. Stock mit Balkon. Die Umgebung bietet viel Lebensqualität: Restaurants, Parks und perfekte ÖV-Verbindungen."
+        },
+        "attachments": [
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1576698483491-8c43f0862543?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1600488999585-e4364713b90a?w=1200&q=80"
+          },
+          {
+            "type": "IMAGE",
+            "url": "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=80"
+          }
+        ]
+      }
+    }
+  }
+]
