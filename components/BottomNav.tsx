@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ClipboardList, Layers, User } from 'lucide-react';
+import { ClipboardList, Layers, MapPin, User } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 type Item = { id: string; href: string; label: string; icon: LucideIcon };
@@ -10,6 +10,7 @@ type Item = { id: string; href: string; label: string; icon: LucideIcon };
 const items: Item[] = [
   { id: 'profile', href: '/profile', label: 'Profile', icon: User },
   { id: 'swipe', href: '/', label: 'Swipe', icon: Layers },
+  { id: 'map', href: '/map', label: 'Map', icon: MapPin },
   { id: 'status', href: '/status', label: 'Status', icon: ClipboardList },
 ];
 
