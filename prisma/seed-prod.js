@@ -7,7 +7,7 @@ const path = require('path');
 const prisma = new PrismaClient();
 
 async function main() {
-  const raw = fs.readFileSync(path.resolve(process.cwd(), 'data/listings.json'), 'utf-8');
+  const raw = fs.readFileSync(path.resolve(process.cwd(), 'mock-data/real-listings.json'), 'utf-8');
   const listings = JSON.parse(raw);
   const newIds = listings.map((l) => l.id);
 

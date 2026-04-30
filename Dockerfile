@@ -34,6 +34,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modul
 COPY --from=deps --chown=nextjs:nodejs /app/node_modules /opt/prisma/node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/data ./data
+COPY --from=builder --chown=nextjs:nodejs /app/mock-data ./mock-data
 
 # Persistent dirs must exist and be owned by nextjs BEFORE the USER switch,
 # otherwise volumes mount as root and the app can't write to them.
