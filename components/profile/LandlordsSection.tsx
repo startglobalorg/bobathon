@@ -57,9 +57,9 @@ export function LandlordsSection({ landlords, onUpdate, onSaveStatus }: Props) {
   }
 
   return (
-    <section className="bg-white rounded-2xl shadow-[0_2px_12px_rgba(15,20,25,0.06)] p-5">
-      <h2 className="text-xl font-semibold text-[#0F1419] tracking-tight mb-1">Previous landlords</h2>
-      <p className="text-sm text-[#8A95A1] mb-4">
+    <section className="bg-white rounded-2xl shadow-soft p-5">
+      <h2 className="text-xl font-semibold text-ink-900 tracking-tight mb-1">Previous landlords</h2>
+      <p className="text-sm text-ink-400 mb-4">
         {list.length === 0
           ? 'Add your previous landlords — strong references make landlords trust you faster.'
           : 'Strong references make landlords trust you faster.'}
@@ -76,10 +76,11 @@ export function LandlordsSection({ landlords, onUpdate, onSaveStatus }: Props) {
         ))}
       </div>
       <button
+        type="button"
         onClick={handleAdd}
-        className="mt-4 w-full flex items-center justify-center gap-2 h-12 rounded-xl border border-[#E6E8EB] text-[#0077C8] font-medium text-base hover:bg-[#E5F1FA] transition-colors"
+        className="mt-4 w-full flex items-center justify-center gap-2 h-12 rounded-xl border border-border text-accent font-medium text-base hover:bg-accent-soft hover:border-accent/30 transition-colors active:scale-[0.98]"
       >
-        <Plus size={20} />
+        <Plus size={20} strokeWidth={1.5} />
         Add landlord
       </button>
     </section>
