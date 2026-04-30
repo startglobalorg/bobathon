@@ -324,26 +324,44 @@ function ReviewModal({
   } | null>(null);
   const [phase, setPhase] = useState<ModalPhase>(null);
 
+  // Read latest props inside the effect without subscribing to their identity,
+  // so re-renders from setVisible/setPhase don't re-trigger the effect and
+  // cancel the rAF that drives the enter transition.
+  const latestProps = useRef<{ application: Application | null; listing: Listing | null }>({
+    application,
+    listing,
+  });
+  latestProps.current = { application, listing };
+
+  const shouldShow = Boolean(application && listing);
+  const hadContentRef = useRef(false);
+
   useEffect(() => {
-    if (application && listing) {
-      setVisible({ application, listing });
+    if (shouldShow) {
+      const { application: a, listing: l } = latestProps.current;
+      if (!a || !l) return;
+      hadContentRef.current = true;
+      setVisible({ application: a, listing: l });
       setPhase('enter');
       const r = requestAnimationFrame(() => setPhase('enter-active'));
       return () => cancelAnimationFrame(r);
     }
-    if (visible) {
-      setPhase('exit');
-      const r = requestAnimationFrame(() => setPhase('exit-active'));
-      const t = setTimeout(() => {
-        setVisible(null);
-        setPhase(null);
-      }, 240);
-      return () => {
-        cancelAnimationFrame(r);
-        clearTimeout(t);
-      };
-    }
-  }, [application, listing, visible]);
+
+    // Don't run an exit transition on initial mount when there's nothing to exit.
+    if (!hadContentRef.current) return;
+
+    setPhase('exit');
+    const r = requestAnimationFrame(() => setPhase('exit-active'));
+    const t = setTimeout(() => {
+      hadContentRef.current = false;
+      setVisible(null);
+      setPhase(null);
+    }, 240);
+    return () => {
+      cancelAnimationFrame(r);
+      clearTimeout(t);
+    };
+  }, [shouldShow]);
 
   useEffect(() => {
     if (!visible) return;
