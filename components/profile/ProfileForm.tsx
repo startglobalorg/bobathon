@@ -7,6 +7,7 @@ import { SaveIndicator, type SaveStatus } from './SaveIndicator'
 import { BottomNav } from '@/components/nav/BottomNav'
 import { PersonalInfoSection } from './PersonalInfoSection'
 import { BioSection } from './BioSection'
+import { DocumentsSection } from './DocumentsSection'
 
 export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile }) {
   const [profile, setProfile] = useState<ClientProfile>(initialProfile)
@@ -31,6 +32,11 @@ export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile 
           onSaveStatus={setSaveStatus}
         />
         <BioSection
+          profile={profile}
+          onUpdate={handleUpdate}
+          onSaveStatus={setSaveStatus}
+        />
+        <DocumentsSection
           profile={profile}
           onUpdate={handleUpdate}
           onSaveStatus={setSaveStatus}
