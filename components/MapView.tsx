@@ -7,53 +7,55 @@ import { getListings } from '@/lib/api/listings-client';
 import { fmtCHF } from '@/lib/format';
 import type { Listing } from '@/lib/types';
 
+type ReactLeaflet = typeof import('react-leaflet');
+
+// Zürich centre
+const CENTER: [number, number] = [47.3769, 8.5417];
+const ZOOM = 12;
+
 export function MapView() {
   const router = useRouter();
   const [listings, setListings] = useState<Listing[]>([]);
-  const [mapReady, setMapReady] = useState(false);
+  const [mapModule, setMapModule] = useState<ReactLeaflet | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [MapComponents, setMapComponents] = useState<any>(null);
 
   useEffect(() => {
-    console.log('MapView: Starting to load map components...');
-    
-    // Dynamically import map components
-    Promise.all([
-      import('leaflet'),
-      import('react-leaflet'),
-    ]).then(([L, ReactLeaflet]) => {
-      console.log('MapView: Leaflet and react-leaflet loaded successfully');
-      // Fix default marker icon issue
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-        iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    let cancelled = false;
+
+    Promise.all([import('leaflet'), import('react-leaflet')])
+      .then(([L, ReactLeaflet]) => {
+        if (cancelled) return;
+        const proto = L.Icon.Default.prototype as unknown as {
+          _getIconUrl?: unknown;
+        };
+        delete proto._getIconUrl;
+        L.Icon.Default.mergeOptions({
+          iconRetinaUrl:
+            'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+          iconUrl:
+            'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+          shadowUrl:
+            'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+        });
+        setMapModule(ReactLeaflet);
+      })
+      .catch((err: unknown) => {
+        if (cancelled) return;
+        setError(err instanceof Error ? err.message : 'Failed to load map');
       });
-      setMapComponents(ReactLeaflet);
-      setMapReady(true);
-    }).catch((err) => {
-      console.error('MapView: Error loading map components:', err);
-      setError(err.message);
+
+    getListings().then((data) => {
+      if (!cancelled) setListings(data);
     });
 
-    getListings()
-      .then((data) => {
-        console.log('MapView: Loaded listings:', data.length);
-        setListings(data);
-      })
-      .catch((err) => {
-        console.error('MapView: Error loading listings:', err);
-      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const openListing = (id: string) => {
     router.push(`/listing/${id}`);
   };
-
-  // Center of Switzerland (approximate)
-  const center: [number, number] = [46.8182, 8.2275];
-  const zoom = 8;
 
   if (error) {
     return (
@@ -69,7 +71,7 @@ export function MapView() {
     );
   }
 
-  if (!mapReady || !MapComponents) {
+  if (!mapModule) {
     return (
       <div className="min-h-[100dvh] flex items-center justify-center bg-white">
         <div className="text-center">
@@ -81,6 +83,8 @@ export function MapView() {
       </div>
     );
   }
+
+  const { MapContainer, TileLayer, Marker, Popup } = mapModule;
 
   return (
     <div className="h-[100dvh] flex flex-col bg-white">
@@ -94,24 +98,23 @@ export function MapView() {
       </header>
 
       <div className="flex-1 min-h-0 relative">
-        <MapComponents.MapContainer
-          center={center}
-          zoom={zoom}
+        <MapContainer
+          center={CENTER}
+          zoom={ZOOM}
           style={{ height: '100%', width: '100%' }}
           className="z-0"
         >
-          <MapComponents.TileLayer
+          <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {listings.map((listing) => {
-            // Parse coordinates from string format "lat,lng"
             const [lat, lng] = listing.coords.split(',').map(Number);
             if (!lat || !lng) return null;
 
             return (
-              <MapComponents.Marker key={listing.id} position={[lat, lng]}>
-                <MapComponents.Popup>
+              <Marker key={listing.id} position={[lat, lng]}>
+                <Popup>
                   <button
                     type="button"
                     onClick={() => openListing(listing.id)}
@@ -141,14 +144,12 @@ export function MapView() {
                       </p>
                     </div>
                   </button>
-                </MapComponents.Popup>
-              </MapComponents.Marker>
+                </Popup>
+              </Marker>
             );
           })}
-        </MapComponents.MapContainer>
+        </MapContainer>
       </div>
     </div>
   );
 }
-
-// Made with Bob
