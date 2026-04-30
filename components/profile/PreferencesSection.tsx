@@ -235,13 +235,13 @@ function Toggle({
       <span className="text-[15px] text-ink-900">{label}</span>
       <span
         className={cn(
-          'w-12 h-7 rounded-full relative transition-colors duration-200 ease-out',
+          'w-12 h-7 shrink-0 rounded-full relative transition-colors duration-200 ease-out',
           checked ? 'bg-accent' : 'bg-border',
         )}
       >
         <span
           className={cn(
-            'absolute top-0.5 w-6 h-6 bg-white rounded-full shadow-soft transition-transform duration-200 ease-out-strong',
+            'absolute top-0.5 left-0 w-6 h-6 bg-white rounded-full shadow-soft transition-transform duration-200 ease-out-strong',
             checked ? 'translate-x-[1.375rem]' : 'translate-x-0.5',
           )}
         />
