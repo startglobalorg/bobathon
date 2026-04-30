@@ -1,4 +1,4 @@
-// Plain-JS production seed — runs after migrations, skips if listings already exist.
+// Plain-JS production seed — runs after migrations. Upserts listings from data/listings.json and removes stale ones.
 'use strict';
 const { PrismaClient } = require('@prisma/client');
 const fs = require('fs');
@@ -7,18 +7,20 @@ const path = require('path');
 const prisma = new PrismaClient();
 
 async function main() {
-  const count = await prisma.listing.count();
-  if (count > 0) {
-    console.log(`Seed: ${count} listings already present, skipping.`);
-    return;
-  }
-
   const raw = fs.readFileSync(path.resolve(process.cwd(), 'data/listings.json'), 'utf-8');
   const listings = JSON.parse(raw);
+  const newIds = listings.map((l) => l.id);
+
+  // Remove applications for listings that are no longer in the seed file
+  await prisma.application.deleteMany({ where: { listingId: { notIn: newIds } } });
+  // Remove listings that are no longer in the seed file
+  await prisma.listing.deleteMany({ where: { id: { notIn: newIds } } });
 
   for (const l of listings) {
-    await prisma.listing.create({
-      data: { ...l, availabilityStart: new Date(l.availabilityStart) },
+    await prisma.listing.upsert({
+      where: { id: l.id },
+      update: { ...l, availabilityStart: new Date(l.availabilityStart) },
+      create: { ...l, availabilityStart: new Date(l.availabilityStart) },
     });
   }
 
