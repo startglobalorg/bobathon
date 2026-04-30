@@ -6,6 +6,7 @@ const prisma = new PrismaClient();
 
 type ListingSeed = {
   id: string;
+  title: string;
   heroImage: string;
   gallery: string;
   sizeSqm: number;

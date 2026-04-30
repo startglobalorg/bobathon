@@ -52,6 +52,7 @@ model Preferences {
 
 model Listing {
   id                          String   @id
+  title                       String
   heroImage                   String
   gallery                     String
   sizeSqm                     Int

@@ -4,7 +4,6 @@ import type { ClientProfile } from '@/lib/api/profile-client'
 import { computeCompleteness } from '@/lib/completeness'
 import { CompletenessHeader } from './CompletenessHeader'
 import { SaveIndicator, type SaveStatus } from './SaveIndicator'
-import { BottomNav } from '@/components/nav/BottomNav'
 import { PersonalInfoSection } from './PersonalInfoSection'
 import { BioSection } from './BioSection'
 import { DocumentsSection } from './DocumentsSection'
@@ -54,7 +53,6 @@ export function ProfileForm({ initialProfile }: { initialProfile: ClientProfile 
           onSaveStatus={setSaveStatus}
         />
       </div>
-      <BottomNav />
     </div>
   )
 }
