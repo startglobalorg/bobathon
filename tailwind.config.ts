@@ -3,7 +3,6 @@ import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
 
 const config: Config = {
-  darkMode: ['class'],
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -28,8 +27,10 @@ const config: Config = {
         destructive: { DEFAULT: 'hsl(var(--destructive))', foreground: 'hsl(var(--destructive-foreground))' },
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        // shadcn accent slot (hover/dropdown surfaces — must stay near-white)
+        accent: { DEFAULT: 'hsl(var(--accent))', foreground: 'hsl(var(--accent-foreground))' },
         // CI.md brand tokens
-        accent: { DEFAULT: '#0077C8', hover: '#005FA3', soft: '#E5F1FA' },
+        brand: { DEFAULT: '#0077C8', hover: '#005FA3', soft: '#E5F1FA' },
         warm: { DEFAULT: '#FF8A6B', soft: '#FFE3D8' },
         ink: { 900: '#0F1419', 600: '#4A5560', 400: '#8A95A1' },
         border: '#E6E8EB',
