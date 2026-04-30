@@ -26,9 +26,12 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Prisma CLI + engines + schema/migrations + prod seed
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/prisma ./node_modules/prisma
+# Prisma engines + client overlay (standalone trace can miss native binaries)
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
+# Prisma CLI in a sidecar tree so its full transitive dep graph is intact at boot.
+# (deps stage = `npm ci --omit=dev`, prisma is now a prod dep, so this carries
+#  prisma + @prisma/* + effect/c12/deepmerge-ts/empathic and their children.)
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules /opt/prisma/node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 
