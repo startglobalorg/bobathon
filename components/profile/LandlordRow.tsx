@@ -48,21 +48,22 @@ export function LandlordRow({ landlord, onUpdate, onRemove, onSaveStatus }: Prop
   }
 
   const cls =
-    'w-full h-12 rounded-xl border border-[#E6E8EB] bg-white px-4 text-base text-[#0F1419] placeholder:text-[#8A95A1] focus:outline-none focus:border-[#0077C8] focus:ring-2 focus:ring-[#0077C8]/20 transition-colors'
+    'w-full h-12 rounded-xl border border-border bg-white px-4 text-base text-ink-900 placeholder:text-ink-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-[border-color,box-shadow] duration-150 ease-out'
 
   return (
-    <div className="rounded-xl border border-[#E6E8EB] p-4 space-y-3">
+    <div className="rounded-xl border border-border p-4 space-y-3">
       <div className="flex justify-end">
         <button
+          type="button"
           onClick={onRemove}
-          className="text-[#8A95A1] hover:text-[#D64545] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="text-ink-400 hover:text-error transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center active:scale-95"
           aria-label="Remove landlord"
         >
-          <Trash2 size={18} />
+          <Trash2 size={18} strokeWidth={1.5} />
         </button>
       </div>
       <div>
-        <label className="block text-sm font-medium text-[#4A5560] mb-1.5">Name</label>
+        <label className="block text-sm font-medium text-ink-600 mb-1.5">Name</label>
         <input
           className={cls}
           value={fields.name}
@@ -72,7 +73,7 @@ export function LandlordRow({ landlord, onUpdate, onRemove, onSaveStatus }: Prop
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-[#4A5560] mb-1.5">Contact</label>
+        <label className="block text-sm font-medium text-ink-600 mb-1.5">Contact</label>
         <input
           className={cls}
           value={fields.contact}
@@ -83,7 +84,7 @@ export function LandlordRow({ landlord, onUpdate, onRemove, onSaveStatus }: Prop
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-sm font-medium text-[#4A5560] mb-1.5">From</label>
+          <label className="block text-sm font-medium text-ink-600 mb-1.5">From</label>
           <input
             type="date"
             className={cls}
@@ -95,7 +96,7 @@ export function LandlordRow({ landlord, onUpdate, onRemove, onSaveStatus }: Prop
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-[#4A5560] mb-1.5">To</label>
+          <label className="block text-sm font-medium text-ink-600 mb-1.5">To</label>
           <input
             type="date"
             className={cls}

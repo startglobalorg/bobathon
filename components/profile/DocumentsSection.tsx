@@ -36,9 +36,9 @@ export function DocumentsSection({ profile, onUpdate, onSaveStatus }: Props) {
   ]
 
   return (
-    <section className="bg-white rounded-2xl shadow-[0_2px_12px_rgba(15,20,25,0.06)] p-5">
-      <h2 className="text-xl font-semibold text-[#0F1419] tracking-tight mb-1">Documents</h2>
-      <p className="text-sm text-[#8A95A1] mb-4">Required for most applications in Zürich.</p>
+    <section className="bg-white rounded-2xl shadow-soft p-5">
+      <h2 className="text-xl font-semibold text-ink-900 tracking-tight mb-1">Documents</h2>
+      <p className="text-sm text-ink-400 mb-4">Required for most applications in Zürich.</p>
       <div className="space-y-3">
         {docs.map(({ field, label }) => (
           <DocumentUploader
