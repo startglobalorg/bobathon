@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+
+export const dynamic = 'force-dynamic'
 import { profileUpdateSchema } from '@/lib/validation/profile'
 import { deleteUploadedFile } from '@/lib/upload'
 
