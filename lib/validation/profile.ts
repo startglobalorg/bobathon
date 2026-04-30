@@ -5,7 +5,7 @@ export const furnishedPreferenceEnum = z.enum(['any', 'furnished', 'unfurnished'
 export const profileUpdateSchema = z.object({
   firstName: z.string().optional(),
   lastName: z.string().optional(),
-  birthday: z.string().optional(),
+  birthday: z.coerce.date().optional(),
   nationality: z.string().optional(),
   email: z.string().email().optional(),
   phone: z.string().optional(),
@@ -27,15 +27,20 @@ export const preferencesUpsertSchema = z.object({
 })
 
 export const landlordCreateSchema = z.object({
-  name: z.string(),
-  contact: z.string(),
-  periodStart: z.string(),
-  periodEnd: z.string(),
+  name: z.string().min(1),
+  contact: z.string().min(1),
+  periodStart: z.coerce.date(),
+  periodEnd: z.coerce.date(),
 })
 
 export const landlordUpdateSchema = z.object({
   name: z.string().optional(),
   contact: z.string().optional(),
-  periodStart: z.string().optional(),
-  periodEnd: z.string().optional(),
+  periodStart: z.coerce.date().optional(),
+  periodEnd: z.coerce.date().optional(),
 })
+
+export type ProfileUpdate = z.infer<typeof profileUpdateSchema>
+export type PreferencesUpsert = z.infer<typeof preferencesUpsertSchema>
+export type LandlordCreate = z.infer<typeof landlordCreateSchema>
+export type LandlordUpdate = z.infer<typeof landlordUpdateSchema>
