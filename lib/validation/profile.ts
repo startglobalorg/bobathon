@@ -27,8 +27,8 @@ export const preferencesUpsertSchema = z.object({
 })
 
 export const landlordCreateSchema = z.object({
-  name: z.string().min(1),
-  contact: z.string().min(1),
+  name: z.string(),
+  contact: z.string(),
   periodStart: z.coerce.date(),
   periodEnd: z.coerce.date(),
 })

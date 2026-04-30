@@ -44,11 +44,11 @@ export function computeCompleteness(profile: ProfileForCompleteness): Completene
     [(profile.previousLandlords?.length ?? 0) > 0, 'Previous landlords'],
   ]
 
-  const all = [...required, ...bonus]
   const missing = required.filter(([ok]) => !ok).map(([, label]) => label)
-  const passed = all.filter(([ok]) => ok).length
-  const percent = Math.round((passed / all.length) * 100)
+  const passedRequired = required.filter(([ok]) => ok).length
+  const percent = Math.round((passedRequired / required.length) * 100)
   const isReadyToApply = required.every(([ok]) => ok)
+  void bonus
 
   return { percent, missing, isReadyToApply }
 }

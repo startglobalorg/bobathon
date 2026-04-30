@@ -36,40 +36,41 @@ export function PreferencesSection({ preferences, onUpdate, onSaveStatus }: Prop
     petFriendly: preferences?.petFriendly ?? false,
     furnishedPreference: (preferences?.furnishedPreference ?? 'any') as FurnishedPref,
   })
+  const fieldsRef = useRef<Fields>(fields)
+  fieldsRef.current = fields
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const save = useCallback(
-    (patch: Partial<Fields>) => {
-      if (debounceRef.current) clearTimeout(debounceRef.current)
-      debounceRef.current = setTimeout(async () => {
-        onSaveStatus('saving')
-        try {
-          const merged = { ...fields, ...patch }
-          const input: PreferencesInput = {
-            priceMaxChf: merged.priceMaxChf,
-            roomsMin: merged.roomsMin,
-            sizeSqmMin: merged.sizeSqmMin,
-            neighborhoods: merged.neighborhoods.join(','),
-            needsBalcony: merged.needsBalcony,
-            needsParking: merged.needsParking,
-            petFriendly: merged.petFriendly,
-            furnishedPreference: merged.furnishedPreference,
-          }
-          const updated = await upsertPreferences(input)
-          onUpdate(updated)
-          onSaveStatus('saved')
-          setTimeout(() => onSaveStatus('idle'), 2000)
-        } catch {
-          onSaveStatus('error')
+  const save = useCallback(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current)
+    debounceRef.current = setTimeout(async () => {
+      onSaveStatus('saving')
+      try {
+        const current = fieldsRef.current
+        const input: PreferencesInput = {
+          priceMaxChf: current.priceMaxChf,
+          roomsMin: current.roomsMin,
+          sizeSqmMin: current.sizeSqmMin,
+          neighborhoods: current.neighborhoods.join(','),
+          needsBalcony: current.needsBalcony,
+          needsParking: current.needsParking,
+          petFriendly: current.petFriendly,
+          furnishedPreference: current.furnishedPreference,
         }
-      }, 300)
-    },
-    [fields, onUpdate, onSaveStatus],
-  )
+        const updated = await upsertPreferences(input)
+        onUpdate(updated)
+        onSaveStatus('saved')
+        setTimeout(() => onSaveStatus('idle'), 2000)
+      } catch {
+        onSaveStatus('error')
+      }
+    }, 300)
+  }, [onUpdate, onSaveStatus])
 
   const update = <K extends keyof Fields>(key: K, value: Fields[K]) => {
-    setFields((prev) => ({ ...prev, [key]: value }))
-    save({ [key]: value })
+    const next = { ...fieldsRef.current, [key]: value }
+    fieldsRef.current = next
+    setFields(next)
+    save()
   }
 
   const inputCls =
@@ -90,7 +91,7 @@ export function PreferencesSection({ preferences, onUpdate, onSaveStatus }: Prop
               className={cn(inputCls, 'pl-14')}
               value={fields.priceMaxChf}
               onChange={(e) => update('priceMaxChf', parseInt(e.target.value) || 0)}
-              onBlur={() => save({ priceMaxChf: fields.priceMaxChf })}
+              onBlur={() => save()}
               min={0}
             />
           </div>
@@ -123,7 +124,7 @@ export function PreferencesSection({ preferences, onUpdate, onSaveStatus }: Prop
               className={cn(inputCls, 'pr-14')}
               value={fields.sizeSqmMin}
               onChange={(e) => update('sizeSqmMin', parseInt(e.target.value) || 0)}
-              onBlur={() => save({ sizeSqmMin: fields.sizeSqmMin })}
+              onBlur={() => save()}
               min={0}
             />
             <span className="absolute right-4 top-1/2 -translate-y-1/2 text-[#8A95A1] text-base select-none pointer-events-none">

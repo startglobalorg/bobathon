@@ -1,21 +1,79 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { ArrowLeft, Bookmark, Calendar, Check, MapPin } from 'lucide-react';
 import { fmtCHF } from '@/lib/format';
-import { likeListingApi } from '@/lib/api/applications-client';
+import { getApplications, likeListingApi } from '@/lib/api/applications-client';
+import { useAppStore } from '@/lib/store';
 import type { Listing } from '@/lib/types';
+
+const BOOKMARKS_KEY = 'apartner.bookmarks.v1';
+
+function readBookmarks(): string[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = window.localStorage.getItem(BOOKMARKS_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed.filter((x) => typeof x === 'string') as string[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeBookmarks(ids: string[]) {
+  if (typeof window === 'undefined') return;
+  window.localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(ids));
+}
 
 export function ListingDetail({ listing }: { listing: Listing }) {
   const router = useRouter();
+  const showToast = useAppStore((s) => s.showToast);
   const [photoIdx, setPhotoIdx] = useState(0);
+  const [bookmarked, setBookmarked] = useState(false);
+  const [hasApplied, setHasApplied] = useState(false);
+  const [applying, setApplying] = useState(false);
+
+  useEffect(() => {
+    setBookmarked(readBookmarks().includes(listing.id));
+  }, [listing.id]);
+
+  useEffect(() => {
+    let cancelled = false;
+    getApplications()
+      .then((apps) => {
+        if (cancelled) return;
+        setHasApplied(apps.some((a) => a.listingId === listing.id));
+      })
+      .catch(console.error);
+    return () => {
+      cancelled = true;
+    };
+  }, [listing.id]);
 
   const back = () => router.back();
 
-  const apply = () => {
-    likeListingApi(listing.id).catch(console.error);
-    router.push('/status');
+  const toggleBookmark = () => {
+    const current = readBookmarks();
+    const isOn = current.includes(listing.id);
+    const next = isOn ? current.filter((id) => id !== listing.id) : [...current, listing.id];
+    writeBookmarks(next);
+    setBookmarked(!isOn);
+    showToast(isOn ? 'Removed from saved' : 'Saved for later', 1600);
+  };
+
+  const apply = async () => {
+    if (hasApplied || applying) return;
+    setApplying(true);
+    try {
+      await likeListingApi(listing.id);
+      setHasApplied(true);
+      router.push('/status');
+    } catch (err) {
+      console.error(err);
+      setApplying(false);
+    }
   };
 
   return (
@@ -59,10 +117,17 @@ export function ListingDetail({ listing }: { listing: Listing }) {
         </button>
         <button
           type="button"
-          className="absolute top-[max(env(safe-area-inset-top),16px)] right-4 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sheet"
-          aria-label="Save"
+          onClick={toggleBookmark}
+          className="absolute top-[max(env(safe-area-inset-top),16px)] right-4 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sheet active:scale-95 transition-transform"
+          aria-label={bookmarked ? 'Remove from saved' : 'Save'}
+          aria-pressed={bookmarked}
         >
-          <Bookmark size={18} strokeWidth={1.5} />
+          <Bookmark
+            size={18}
+            strokeWidth={1.5}
+            className={bookmarked ? 'text-accent' : 'text-ink-900'}
+            fill={bookmarked ? 'currentColor' : 'none'}
+          />
         </button>
       </div>
 
@@ -190,22 +255,34 @@ export function ListingDetail({ listing }: { listing: Listing }) {
 
       <div className="fixed bottom-0 left-0 right-0 z-30">
         <div className="max-w-md mx-auto bg-white border-t border-border px-5 pt-3 pb-[max(env(safe-area-inset-bottom),16px)]">
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={back}
-              className="text-ink-600 text-[15px] font-medium px-4 h-12 active:opacity-60"
+          {hasApplied ? (
+            <div
+              className="w-full bg-accent-soft text-accent-hover rounded-full h-12 font-medium flex items-center justify-center gap-2"
+              role="status"
+              aria-live="polite"
             >
-              Pass
-            </button>
-            <button
-              type="button"
-              onClick={apply}
-              className="flex-1 bg-accent hover:bg-accent-hover text-white rounded-full h-12 font-medium active:scale-[0.98] transition"
-            >
-              Apply
-            </button>
-          </div>
+              <Check size={18} strokeWidth={2.5} />
+              Applied
+            </div>
+          ) : (
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={back}
+                className="text-ink-600 text-[15px] font-medium px-4 h-12 active:opacity-60"
+              >
+                Pass
+              </button>
+              <button
+                type="button"
+                onClick={apply}
+                disabled={applying}
+                className="flex-1 bg-accent hover:bg-accent-hover text-white rounded-full h-12 font-medium active:scale-[0.98] transition disabled:opacity-60"
+              >
+                {applying ? 'Applying…' : 'Apply'}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ export function CompletenessHeader({ result }: { result: CompletenessResult }) {
       <div className="max-w-[480px] mx-auto px-5 py-3">
         <div className="flex items-center justify-between mb-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Logo_Apartner.svg" alt="Apartner" className="h-6" />
+          <img src="/Logo_Apartner.svg" alt="Apartner" className="h-9" />
           {result.isReadyToApply ? (
             <span className="text-xs font-medium text-[#1F9D55] bg-[#e6f7ef] px-2.5 py-1 rounded-full">
               Ready to apply

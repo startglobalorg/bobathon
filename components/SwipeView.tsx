@@ -61,12 +61,16 @@ export function SwipeView() {
         </button>
       </header>
 
-      <div className="flex-1 px-5 pb-44 flex flex-col">
+      <div className="flex-1 px-5 pb-[calc(120px+env(safe-area-inset-bottom))] flex flex-col">
         {top ? (
           <>
             <div
-              className="relative w-full aspect-[3/4.6] mt-2 mx-auto"
-              style={{ maxWidth: 380 }}
+              className="relative w-full mt-2 mx-auto"
+              style={{
+                maxWidth: 380,
+                aspectRatio: '3 / 4.6',
+                maxHeight: 'calc(100dvh - 360px)',
+              }}
             >
               {remaining.map((l, i) => (
                 <SwipeCard
